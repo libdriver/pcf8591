@@ -56,7 +56,7 @@ uint8_t pcf8591_basic_init(pcf8591_address_t addr, pcf8591_mode_t mode)
     DRIVER_PCF8591_LINK_INIT(&gs_handle, pcf8591_handle_t);
     DRIVER_PCF8591_LINK_IIC_INIT(&gs_handle, pcf8591_interface_iic_init);
     DRIVER_PCF8591_LINK_IIC_DEINIT(&gs_handle, pcf8591_interface_iic_deinit);
-    DRIVER_PCF8591_LINK_IIC_READ_COMMAND(&gs_handle, pcf8591interface_iic_read_cmd);
+    DRIVER_PCF8591_LINK_IIC_READ_COMMAND(&gs_handle, pcf8591_interface_iic_read_cmd);
     DRIVER_PCF8591_LINK_IIC_WRITE_COMMAND(&gs_handle, pcf8591_interface_iic_write_cmd);
     DRIVER_PCF8591_LINK_DELAY_MS(&gs_handle, pcf8591_interface_delay_ms);
     DRIVER_PCF8591_LINK_DEBUG_PRINT(&gs_handle, pcf8591_interface_debug_print);

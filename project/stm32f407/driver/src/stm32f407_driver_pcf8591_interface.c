@@ -90,7 +90,7 @@ uint8_t pcf8591_interface_iic_write_cmd(uint8_t addr, uint8_t *buf, uint16_t len
  *             - 1 read failed
  * @note       none
  */
-uint8_t pcf8591interface_iic_read_cmd(uint8_t addr, uint8_t *buf, uint16_t len)
+uint8_t pcf8591_interface_iic_read_cmd(uint8_t addr, uint8_t *buf, uint16_t len)
 {
     return iic_read_cmd(addr, buf, len);
 }
