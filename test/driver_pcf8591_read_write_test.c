@@ -421,6 +421,7 @@ uint8_t pcf8591_read_write_test(pcf8591_address_t addr, uint32_t times)
 
     /* finish read test */
     pcf8591_interface_debug_print("pcf8591: finish read test.\n");  
+    pcf8591_deinit(&gs_handle);
     
     return 0;
 }

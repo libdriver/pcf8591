@@ -514,6 +514,7 @@ uint8_t pcf8591_register_test(pcf8591_address_t addr)
     
     /* finish register test */
     pcf8591_interface_debug_print("pcf8591: finish register test.\n");
+    pcf8591_deinit(&gs_handle);
     
     return 0;
 }
