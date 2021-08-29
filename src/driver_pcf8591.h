@@ -62,14 +62,14 @@ extern "C"{
  */
 typedef enum
 {
-    PCF8591_ADDRESS_A000 = 0,        /**< A0A1A2 000 */
-    PCF8591_ADDRESS_A001 = 1,        /**< A0A1A2 001 */
-    PCF8591_ADDRESS_A010 = 2,        /**< A0A1A2 010 */
-    PCF8591_ADDRESS_A011 = 3,        /**< A0A1A2 011 */
-    PCF8591_ADDRESS_A100 = 4,        /**< A0A1A2 100 */
-    PCF8591_ADDRESS_A101 = 5,        /**< A0A1A2 101 */
-    PCF8591_ADDRESS_A110 = 6,        /**< A0A1A2 110 */
-    PCF8591_ADDRESS_A111 = 7,        /**< A0A1A2 111 */
+    PCF8591_ADDRESS_A000 = 0,        /**< A2A1A0 000 */
+    PCF8591_ADDRESS_A001 = 1,        /**< A2A1A0 001 */
+    PCF8591_ADDRESS_A010 = 2,        /**< A2A1A0 010 */
+    PCF8591_ADDRESS_A011 = 3,        /**< A2A1A0 011 */
+    PCF8591_ADDRESS_A100 = 4,        /**< A2A1A0 100 */
+    PCF8591_ADDRESS_A101 = 5,        /**< A2A1A0 101 */
+    PCF8591_ADDRESS_A110 = 6,        /**< A2A1A0 110 */
+    PCF8591_ADDRESS_A111 = 7,        /**< A2A1A0 111 */
 } pcf8591_address_t;
 
 /**
