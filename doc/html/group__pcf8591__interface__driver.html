@@ -104,9 +104,9 @@ Functions</h2></td></tr>
 <tr class="memitem:gaad10461150bffc15d051545daa681f1e"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__pcf8591__interface__driver.html#gaad10461150bffc15d051545daa681f1e">pcf8591_interface_iic_write_cmd</a> (uint8_t addr, uint8_t *buf, uint16_t len)</td></tr>
 <tr class="memdesc:gaad10461150bffc15d051545daa681f1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">interface iic bus write command  <a href="group__pcf8591__interface__driver.html#gaad10461150bffc15d051545daa681f1e">More...</a><br /></td></tr>
 <tr class="separator:gaad10461150bffc15d051545daa681f1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabec1cc10c5d7ac995bf06aa12c5de9f3"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__pcf8591__interface__driver.html#gabec1cc10c5d7ac995bf06aa12c5de9f3">pcf8591interface_iic_read_cmd</a> (uint8_t addr, uint8_t *buf, uint16_t len)</td></tr>
-<tr class="memdesc:gabec1cc10c5d7ac995bf06aa12c5de9f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">interface iic bus read command  <a href="group__pcf8591__interface__driver.html#gabec1cc10c5d7ac995bf06aa12c5de9f3">More...</a><br /></td></tr>
-<tr class="separator:gabec1cc10c5d7ac995bf06aa12c5de9f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaff6815d178fd1e069a95153e222cd218"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__pcf8591__interface__driver.html#gaff6815d178fd1e069a95153e222cd218">pcf8591_interface_iic_read_cmd</a> (uint8_t addr, uint8_t *buf, uint16_t len)</td></tr>
+<tr class="memdesc:gaff6815d178fd1e069a95153e222cd218"><td class="mdescLeft">&#160;</td><td class="mdescRight">interface iic bus read command  <a href="group__pcf8591__interface__driver.html#gaff6815d178fd1e069a95153e222cd218">More...</a><br /></td></tr>
+<tr class="separator:gaff6815d178fd1e069a95153e222cd218"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga58bd695f66663b7d2857bd23ef290904"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__pcf8591__interface__driver.html#ga58bd695f66663b7d2857bd23ef290904">pcf8591_interface_delay_ms</a> (uint32_t ms)</td></tr>
 <tr class="memdesc:ga58bd695f66663b7d2857bd23ef290904"><td class="mdescLeft">&#160;</td><td class="mdescRight">interface delay ms  <a href="group__pcf8591__interface__driver.html#ga58bd695f66663b7d2857bd23ef290904">More...</a><br /></td></tr>
 <tr class="separator:ga58bd695f66663b7d2857bd23ef290904"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -242,6 +242,58 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="gaff6815d178fd1e069a95153e222cd218"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaff6815d178fd1e069a95153e222cd218">&#9670;&nbsp;</a></span>pcf8591_interface_iic_read_cmd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t pcf8591_interface_iic_read_cmd </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>buf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>interface iic bus read command </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>is the iic device write address </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*buf</td><td>points to a data buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>is the length of data buffer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>status code<ul>
+<li>0 success</li>
+<li>1 read failed </li>
+</ul>
+</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="driver__pcf8591__interface__template_8c_source.html#l00089">89</a> of file <a class="el" href="driver__pcf8591__interface__template_8c_source.html">driver_pcf8591_interface_template.c</a>.</p>
+
+</div>
+</div>
 <a id="gaad10461150bffc15d051545daa681f1e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gaad10461150bffc15d051545daa681f1e">&#9670;&nbsp;</a></span>pcf8591_interface_iic_write_cmd()</h2>
 
@@ -291,58 +343,6 @@ Functions</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="driver__pcf8591__interface__template_8c_source.html#l00074">74</a> of file <a class="el" href="driver__pcf8591__interface__template_8c_source.html">driver_pcf8591_interface_template.c</a>.</p>
-
-</div>
-</div>
-<a id="gabec1cc10c5d7ac995bf06aa12c5de9f3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gabec1cc10c5d7ac995bf06aa12c5de9f3">&#9670;&nbsp;</a></span>pcf8591interface_iic_read_cmd()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t pcf8591interface_iic_read_cmd </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>addr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t *&#160;</td>
-          <td class="paramname"><em>buf</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>len</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>interface iic bus read command </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>is the iic device write address </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*buf</td><td>points to a data buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>is the length of data buffer </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>status code<ul>
-<li>0 success</li>
-<li>1 read failed </li>
-</ul>
-</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>none </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="driver__pcf8591__interface__template_8c_source.html#l00089">89</a> of file <a class="el" href="driver__pcf8591__interface__template_8c_source.html">driver_pcf8591_interface_template.c</a>.</p>
 
 </div>
 </div>
