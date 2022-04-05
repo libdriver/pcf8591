@@ -120,8 +120,8 @@ void pcf8591_interface_delay_ms(uint32_t ms)
  */
 void pcf8591_interface_debug_print(const char *const fmt, ...)
 {
-    volatile char str[256];
-    volatile uint8_t len;
+    char str[256];
+    uint8_t len;
     va_list args;
     
     memset((char *)str, 0, sizeof(char)*256); 
