@@ -50,7 +50,7 @@ static pcf8591_handle_t gs_handle;        /**< pcf8591 handle */
  */
 uint8_t pcf8591_increment_init(pcf8591_address_t addr, pcf8591_mode_t mode)
 {
-    volatile uint8_t res;
+    uint8_t res;
 
     /* link functions */
     DRIVER_PCF8591_LINK_INIT(&gs_handle, pcf8591_handle_t);
@@ -63,7 +63,7 @@ uint8_t pcf8591_increment_init(pcf8591_address_t addr, pcf8591_mode_t mode)
     
     /* set addr pin */
     res = pcf8591_set_addr_pin(&gs_handle, addr);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: set addr pin failed.\n");
         
@@ -72,7 +72,7 @@ uint8_t pcf8591_increment_init(pcf8591_address_t addr, pcf8591_mode_t mode)
     
     /* pcf8591 init */
     res = pcf8591_init(&gs_handle);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: init failed.\n");
         
@@ -81,30 +81,30 @@ uint8_t pcf8591_increment_init(pcf8591_address_t addr, pcf8591_mode_t mode)
     
     /* set mode */
     res = pcf8591_set_mode(&gs_handle, mode);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: set mode failed.\n");
-        pcf8591_deinit(&gs_handle);
+        (void)pcf8591_deinit(&gs_handle);
         
         return 1;
     }
     
     /* enable auto increment */
     res = pcf8591_set_auto_increment(&gs_handle, PCF8591_BOOL_TRUE);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: set auto increment failed.\n");
-        pcf8591_deinit(&gs_handle);
+        (void)pcf8591_deinit(&gs_handle);
         
         return 1;
     }
     
     /* set default reference voltage */
     res = pcf8591_set_reference_voltage(&gs_handle, PCF8591_INCREMENT_DEFAULT_REFERENCE_VOLTAGE);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: set reference voltage failed.\n");
-        pcf8591_deinit(&gs_handle);
+        (void)pcf8591_deinit(&gs_handle);
         
         return 1;
     }
@@ -122,7 +122,7 @@ uint8_t pcf8591_increment_init(pcf8591_address_t addr, pcf8591_mode_t mode)
 uint8_t pcf8591_increment_deinit(void)
 {
     /* close pcf8591 */
-    if (pcf8591_deinit(&gs_handle))
+    if (pcf8591_deinit(&gs_handle) != 0)
     {
         return 1;
     }
@@ -144,7 +144,7 @@ uint8_t pcf8591_increment_deinit(void)
  */
 uint8_t pcf8591_increment_read(int16_t *raw, float *adc, uint8_t *len)
 {
-    if (pcf8591_multiple_read(&gs_handle, raw, adc, len))
+    if (pcf8591_multiple_read(&gs_handle, raw, adc, len) != 0)
     {
         return 1;
     }
@@ -164,12 +164,12 @@ uint8_t pcf8591_increment_read(int16_t *raw, float *adc, uint8_t *len)
  */
 uint8_t pcf8591_increment_write(float adc)
 {
-    volatile uint8_t res;
-    volatile uint8_t data;
+    uint8_t res;
+    uint8_t data;
     
     /* convert to register data */
     res = pcf8591_dac_convert_to_register(&gs_handle, adc, (uint8_t *)&data);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: dac convert to register failed.\n");
         
@@ -177,7 +177,7 @@ uint8_t pcf8591_increment_write(float adc)
     }
     
     /* wrire dac */
-    if (pcf8591_write(&gs_handle, data))
+    if (pcf8591_write(&gs_handle, data) != 0)
     {
         return 1;
     }

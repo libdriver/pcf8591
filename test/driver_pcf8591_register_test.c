@@ -50,10 +50,10 @@ static pcf8591_handle_t gs_handle;        /**< pcf8591 handle */
  */
 uint8_t pcf8591_register_test(pcf8591_address_t addr)
 {
-    volatile uint8_t res;
-    volatile uint8_t reg;
-    volatile float ref_voltage;
-    volatile float ref_voltage_check;
+    uint8_t res;
+    uint8_t reg;
+    float ref_voltage;
+    float ref_voltage_check;
     pcf8591_info_t info;
     pcf8591_address_t address_pin;
     pcf8591_channel_t channel;
@@ -71,7 +71,7 @@ uint8_t pcf8591_register_test(pcf8591_address_t addr)
     
     /* pcf8591 info */
     res = pcf8591_info(&info);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: get info failed.\n");
        
@@ -97,7 +97,7 @@ uint8_t pcf8591_register_test(pcf8591_address_t addr)
     
     /* set addr pin a000 */
     res = pcf8591_set_addr_pin(&gs_handle, PCF8591_ADDRESS_A000);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: set addr pin failed.\n");
        
@@ -105,7 +105,7 @@ uint8_t pcf8591_register_test(pcf8591_address_t addr)
     }
     pcf8591_interface_debug_print("pcf8591: set addr pin a000.\n");
     res = pcf8591_get_addr_pin(&gs_handle, &address_pin);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: get addr pin failed.\n");
        
@@ -115,7 +115,7 @@ uint8_t pcf8591_register_test(pcf8591_address_t addr)
     
     /* set addr pin a001 */
     res = pcf8591_set_addr_pin(&gs_handle, PCF8591_ADDRESS_A001);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: set addr pin failed.\n");
        
@@ -123,7 +123,7 @@ uint8_t pcf8591_register_test(pcf8591_address_t addr)
     }
     pcf8591_interface_debug_print("pcf8591: set addr pin a001.\n");
     res = pcf8591_get_addr_pin(&gs_handle, &address_pin);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: get addr pin failed.\n");
        
@@ -133,7 +133,7 @@ uint8_t pcf8591_register_test(pcf8591_address_t addr)
     
     /* set addr pin a010 */
     res = pcf8591_set_addr_pin(&gs_handle, PCF8591_ADDRESS_A010);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: set addr pin failed.\n");
        
@@ -141,7 +141,7 @@ uint8_t pcf8591_register_test(pcf8591_address_t addr)
     }
     pcf8591_interface_debug_print("pcf8591: set addr pin a010.\n");
     res = pcf8591_get_addr_pin(&gs_handle, &address_pin);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: get addr pin failed.\n");
        
@@ -151,7 +151,7 @@ uint8_t pcf8591_register_test(pcf8591_address_t addr)
     
     /* set addr pin a011 */
     res = pcf8591_set_addr_pin(&gs_handle, PCF8591_ADDRESS_A011);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: set addr pin failed.\n");
        
@@ -159,7 +159,7 @@ uint8_t pcf8591_register_test(pcf8591_address_t addr)
     }
     pcf8591_interface_debug_print("pcf8591: set addr pin a011.\n");
     res = pcf8591_get_addr_pin(&gs_handle, &address_pin);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: get addr pin failed.\n");
        
@@ -169,7 +169,7 @@ uint8_t pcf8591_register_test(pcf8591_address_t addr)
     
     /* set addr pin a100 */
     res = pcf8591_set_addr_pin(&gs_handle, PCF8591_ADDRESS_A100);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: set addr pin failed.\n");
        
@@ -177,7 +177,7 @@ uint8_t pcf8591_register_test(pcf8591_address_t addr)
     }
     pcf8591_interface_debug_print("pcf8591: set addr pin a100.\n");
     res = pcf8591_get_addr_pin(&gs_handle, &address_pin);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: get addr pin failed.\n");
        
@@ -187,7 +187,7 @@ uint8_t pcf8591_register_test(pcf8591_address_t addr)
     
     /* set addr pin a101 */
     res = pcf8591_set_addr_pin(&gs_handle, PCF8591_ADDRESS_A101);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: set addr pin failed.\n");
        
@@ -195,7 +195,7 @@ uint8_t pcf8591_register_test(pcf8591_address_t addr)
     }
     pcf8591_interface_debug_print("pcf8591: set addr pin a101.\n");
     res = pcf8591_get_addr_pin(&gs_handle, &address_pin);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: get addr pin failed.\n");
        
@@ -205,7 +205,7 @@ uint8_t pcf8591_register_test(pcf8591_address_t addr)
     
     /* set addr pin a110 */
     res = pcf8591_set_addr_pin(&gs_handle, PCF8591_ADDRESS_A110);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: set addr pin failed.\n");
        
@@ -213,7 +213,7 @@ uint8_t pcf8591_register_test(pcf8591_address_t addr)
     }
     pcf8591_interface_debug_print("pcf8591: set addr pin a110.\n");
     res = pcf8591_get_addr_pin(&gs_handle, &address_pin);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: get addr pin failed.\n");
        
@@ -223,7 +223,7 @@ uint8_t pcf8591_register_test(pcf8591_address_t addr)
     
     /* set addr pin a111 */
     res = pcf8591_set_addr_pin(&gs_handle, PCF8591_ADDRESS_A111);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: set addr pin failed.\n");
        
@@ -231,7 +231,7 @@ uint8_t pcf8591_register_test(pcf8591_address_t addr)
     }
     pcf8591_interface_debug_print("pcf8591: set addr pin a111.\n");
     res = pcf8591_get_addr_pin(&gs_handle, &address_pin);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: get addr pin failed.\n");
        
@@ -241,7 +241,7 @@ uint8_t pcf8591_register_test(pcf8591_address_t addr)
     
     /* set addr pin */
     res = pcf8591_set_addr_pin(&gs_handle, addr);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: set addr pin failed.\n");
        
@@ -250,7 +250,7 @@ uint8_t pcf8591_register_test(pcf8591_address_t addr)
     
     /* pcf8591 init */
     res = pcf8591_init(&gs_handle);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: init failed.\n");
        
@@ -262,19 +262,19 @@ uint8_t pcf8591_register_test(pcf8591_address_t addr)
     
     /* channel 0 */
     res = pcf8591_set_channel(&gs_handle, PCF8591_CHANNEL_0);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: set channel failed.\n");
-        pcf8591_deinit(&gs_handle);
+        (void)pcf8591_deinit(&gs_handle);
        
         return 1;
     }
     pcf8591_interface_debug_print("pcf8591: set channel 0.\n");
     res = pcf8591_get_channel(&gs_handle, &channel);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: get channel failed.\n");
-        pcf8591_deinit(&gs_handle);
+        (void)pcf8591_deinit(&gs_handle);
        
         return 1;
     }
@@ -282,19 +282,19 @@ uint8_t pcf8591_register_test(pcf8591_address_t addr)
     
     /* channel 1 */
     res = pcf8591_set_channel(&gs_handle, PCF8591_CHANNEL_1);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: set channel failed.\n");
-        pcf8591_deinit(&gs_handle);
+        (void)pcf8591_deinit(&gs_handle);
        
         return 1;
     }
     pcf8591_interface_debug_print("pcf8591: set channel 1.\n");
     res = pcf8591_get_channel(&gs_handle, &channel);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: get channel failed.\n");
-        pcf8591_deinit(&gs_handle);
+        (void)pcf8591_deinit(&gs_handle);
        
         return 1;
     }
@@ -302,19 +302,19 @@ uint8_t pcf8591_register_test(pcf8591_address_t addr)
     
     /* channel 2 */
     res = pcf8591_set_channel(&gs_handle, PCF8591_CHANNEL_2);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: set channel failed.\n");
-        pcf8591_deinit(&gs_handle);
+        (void)pcf8591_deinit(&gs_handle);
        
         return 1;
     }
     pcf8591_interface_debug_print("pcf8591: set channel 2.\n");
     res = pcf8591_get_channel(&gs_handle, &channel);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: get channel failed.\n");
-        pcf8591_deinit(&gs_handle);
+        (void)pcf8591_deinit(&gs_handle);
        
         return 1;
     }
@@ -322,19 +322,19 @@ uint8_t pcf8591_register_test(pcf8591_address_t addr)
     
     /* channel 3 */
     res = pcf8591_set_channel(&gs_handle, PCF8591_CHANNEL_3);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: set channel failed.\n");
-        pcf8591_deinit(&gs_handle);
+        (void)pcf8591_deinit(&gs_handle);
        
         return 1;
     }
     pcf8591_interface_debug_print("pcf8591: set channel 3.\n");
     res = pcf8591_get_channel(&gs_handle, &channel);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: get channel failed.\n");
-        pcf8591_deinit(&gs_handle);
+        (void)pcf8591_deinit(&gs_handle);
        
         return 1;
     }
@@ -342,10 +342,10 @@ uint8_t pcf8591_register_test(pcf8591_address_t addr)
     
     /* channel 1 */
     res = pcf8591_set_channel(&gs_handle, PCF8591_CHANNEL_1);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: set channel failed.\n");
-        pcf8591_deinit(&gs_handle);
+        (void)pcf8591_deinit(&gs_handle);
        
         return 1;
     }
@@ -355,19 +355,19 @@ uint8_t pcf8591_register_test(pcf8591_address_t addr)
     
     /* set mode AIN0123_GND */
     res = pcf8591_set_mode(&gs_handle, PCF8591_MODE_AIN0123_GND);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: set mode failed.\n");
-        pcf8591_deinit(&gs_handle);
+        (void)pcf8591_deinit(&gs_handle);
        
         return 1;
     }
     pcf8591_interface_debug_print("pcf8591: set mode AIN0123_GND.\n");
     res = pcf8591_get_mode(&gs_handle, &mode);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: get mode failed.\n");
-        pcf8591_deinit(&gs_handle);
+        (void)pcf8591_deinit(&gs_handle);
        
         return 1;
     }
@@ -375,19 +375,19 @@ uint8_t pcf8591_register_test(pcf8591_address_t addr)
     
     /* set mode AIN012_AIN3 */
     res = pcf8591_set_mode(&gs_handle, PCF8591_MODE_AIN012_AIN3);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: set mode failed.\n");
-        pcf8591_deinit(&gs_handle);
+        (void)pcf8591_deinit(&gs_handle);
        
         return 1;
     }
     pcf8591_interface_debug_print("pcf8591: set mode AIN012_AIN3.\n");
     res = pcf8591_get_mode(&gs_handle, &mode);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: get mode failed.\n");
-        pcf8591_deinit(&gs_handle);
+        (void)pcf8591_deinit(&gs_handle);
        
         return 1;
     }
@@ -395,19 +395,19 @@ uint8_t pcf8591_register_test(pcf8591_address_t addr)
     
     /* set mode AIN0_GND_AND_AIN1_GND_AND_AIN2_AIN3 */
     res = pcf8591_set_mode(&gs_handle, PCF8591_MODE_AIN0_GND_AND_AIN1_GND_AND_AIN2_AIN3);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: set mode failed.\n");
-        pcf8591_deinit(&gs_handle);
+        (void)pcf8591_deinit(&gs_handle);
        
         return 1;
     }
     pcf8591_interface_debug_print("pcf8591: set mode AIN0_GND_AND_AIN1_GND_AND_AIN2_AIN3.\n");
     res = pcf8591_get_mode(&gs_handle, &mode);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: get mode failed.\n");
-        pcf8591_deinit(&gs_handle);
+        (void)pcf8591_deinit(&gs_handle);
        
         return 1;
     }
@@ -415,19 +415,19 @@ uint8_t pcf8591_register_test(pcf8591_address_t addr)
     
     /* set mode AIN0_AIN1_AND_ANI2_AIN3 */
     res = pcf8591_set_mode(&gs_handle, PCF8591_MODE_AIN0_AIN1_AND_ANI2_AIN3);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: set mode failed.\n");
-        pcf8591_deinit(&gs_handle);
+        (void)pcf8591_deinit(&gs_handle);
        
         return 1;
     }
     pcf8591_interface_debug_print("pcf8591: set mode AIN0_AIN1_AND_ANI2_AIN3.\n");
     res = pcf8591_get_mode(&gs_handle, &mode);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: get mode failed.\n");
-        pcf8591_deinit(&gs_handle);
+        (void)pcf8591_deinit(&gs_handle);
        
         return 1;
     }
@@ -438,19 +438,19 @@ uint8_t pcf8591_register_test(pcf8591_address_t addr)
     
     /* enable */
     res = pcf8591_set_auto_increment(&gs_handle, PCF8591_BOOL_TRUE);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: set auto increment failed.\n");
-        pcf8591_deinit(&gs_handle);
+        (void)pcf8591_deinit(&gs_handle);
        
         return 1;
     }
     pcf8591_interface_debug_print("pcf8591: enable auto increment.\n");
     res = pcf8591_get_auto_increment(&gs_handle, &enable);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: get auto increment failed.\n");
-        pcf8591_deinit(&gs_handle);
+        (void)pcf8591_deinit(&gs_handle);
        
         return 1;
     }
@@ -458,19 +458,19 @@ uint8_t pcf8591_register_test(pcf8591_address_t addr)
     
     /* disable */
     res = pcf8591_set_auto_increment(&gs_handle, PCF8591_BOOL_FALSE);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: set auto increment failed.\n");
-        pcf8591_deinit(&gs_handle);
+        (void)pcf8591_deinit(&gs_handle);
        
         return 1;
     }
     pcf8591_interface_debug_print("pcf8591: disable auto increment.\n");
     res = pcf8591_get_auto_increment(&gs_handle, &enable);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: get auto increment failed.\n");
-        pcf8591_deinit(&gs_handle);
+        (void)pcf8591_deinit(&gs_handle);
        
         return 1;
     }
@@ -481,32 +481,32 @@ uint8_t pcf8591_register_test(pcf8591_address_t addr)
     ref_voltage = (float)(rand() % 200) / 100.0f;
     pcf8591_interface_debug_print("pcf8591: set ref voltage %0.3f.\n", ref_voltage);
     res = pcf8591_set_reference_voltage(&gs_handle, ref_voltage);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: set reference voltage failed.\n");
-        pcf8591_deinit(&gs_handle);
+        (void)pcf8591_deinit(&gs_handle);
        
         return 1;
     }
     res = pcf8591_get_reference_voltage(&gs_handle, (float *)&ref_voltage_check);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: get reference voltage failed.\n");
-        pcf8591_deinit(&gs_handle);
+        (void)pcf8591_deinit(&gs_handle);
        
         return 1;
     }
-    pcf8591_interface_debug_print("pcf8591: check reference voltage %s.\n", (ref_voltage_check==ref_voltage)?"ok":"error");
+    pcf8591_interface_debug_print("pcf8591: check reference voltage %0.3f.\n", ref_voltage_check);
     
     /* pcf8591_dac_convert_to_register test */
     pcf8591_interface_debug_print("pcf8591: pcf8591_dac_convert_to_register test.\n");
     ref_voltage = (float)(rand() % 200) / 100.0f;
     pcf8591_interface_debug_print("pcf8591: set convert voltage %0.3f.\n", ref_voltage);
     res = pcf8591_dac_convert_to_register(&gs_handle, ref_voltage, (uint8_t *)&reg);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: dac convert to register failed.\n");
-        pcf8591_deinit(&gs_handle);
+        (void)pcf8591_deinit(&gs_handle);
        
         return 1;
     }
@@ -514,7 +514,7 @@ uint8_t pcf8591_register_test(pcf8591_address_t addr)
     
     /* finish register test */
     pcf8591_interface_debug_print("pcf8591: finish register test.\n");
-    pcf8591_deinit(&gs_handle);
+    (void)pcf8591_deinit(&gs_handle);
     
     return 0;
 }

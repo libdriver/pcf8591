@@ -35,8 +35,8 @@
  * </table>
  */
 
-#ifndef _DRIVER_PCF8591_INCREMENT_H_
-#define _DRIVER_PCF8591_INCREMENT_H_
+#ifndef DRIVER_PCF8591_INCREMENT_H
+#define DRIVER_PCF8591_INCREMENT_H
 
 #include "driver_pcf8591_interface.h"
 

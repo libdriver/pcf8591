@@ -1,6 +1,6 @@
 var driver__pcf8591__interface_8h =
 [
-    [ "pcf8591_interface_debug_print", "group__pcf8591__interface__driver.html#ga02c32c9afda83bf3ed8c4a0abd13cee3", null ],
+    [ "pcf8591_interface_debug_print", "group__pcf8591__interface__driver.html#ga6a62514c3088c4e7c450922b75ce226f", null ],
     [ "pcf8591_interface_delay_ms", "group__pcf8591__interface__driver.html#ga58bd695f66663b7d2857bd23ef290904", null ],
     [ "pcf8591_interface_iic_deinit", "group__pcf8591__interface__driver.html#gad3fd5e5fbbf68777308c473c6d951a43", null ],
     [ "pcf8591_interface_iic_init", "group__pcf8591__interface__driver.html#ga05a1e87dba937d75d52741310b1de87c", null ],
