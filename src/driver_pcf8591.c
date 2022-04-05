@@ -105,8 +105,8 @@ uint8_t pcf8591_get_addr_pin(pcf8591_handle_t *handle, pcf8591_address_t *addr_p
  */
 uint8_t pcf8591_set_channel(pcf8591_handle_t *handle, pcf8591_channel_t channel)
 {
-    volatile uint8_t res;
-    volatile uint8_t prev_conf;
+    uint8_t res;
+    uint8_t prev_conf;
     
     if (handle == NULL)                                                                /* check handle */
     {
@@ -121,7 +121,7 @@ uint8_t pcf8591_set_channel(pcf8591_handle_t *handle, pcf8591_channel_t channel)
     handle->conf &= ~(3 << 0);                                                         /* clear channel bits */
     handle->conf |= channel << 0;                                                      /* set channel */
     res = handle->iic_write_cmd(handle->iic_addr, (uint8_t *)&handle->conf, 1);        /* write command */
-    if (res)
+    if (res != 0)                                                                      /* check error */
     {
         handle->debug_print("pcf8591: write command failed.\n");                       /* write command failed */
         handle->conf = prev_conf;                                                      /* recover conf */
@@ -171,8 +171,8 @@ uint8_t pcf8591_get_channel(pcf8591_handle_t *handle, pcf8591_channel_t *channel
  */
 uint8_t pcf8591_set_mode(pcf8591_handle_t *handle, pcf8591_mode_t mode)
 {
-    volatile uint8_t res;
-    volatile uint8_t prev_conf;
+    uint8_t res;
+    uint8_t prev_conf;
     
     if (handle == NULL)                                                                /* check handle */
     {
@@ -187,7 +187,7 @@ uint8_t pcf8591_set_mode(pcf8591_handle_t *handle, pcf8591_mode_t mode)
     handle->conf &= ~(3 << 4);                                                         /* clear mode bits */
     handle->conf |= mode << 4;                                                         /* set mode */
     res = handle->iic_write_cmd(handle->iic_addr, (uint8_t *)&handle->conf, 1);        /* write command */
-    if (res)                                                                           /* check error */
+    if (res != 0)                                                                      /* check error */
     {
         handle->debug_print("pcf8591: write command failed.\n");                       /* write command failed */
         handle->conf = prev_conf;                                                      /* recover conf */
@@ -237,8 +237,8 @@ uint8_t pcf8591_get_mode(pcf8591_handle_t *handle, pcf8591_mode_t *mode)
  */
 uint8_t pcf8591_set_auto_increment(pcf8591_handle_t *handle, pcf8591_bool_t enable)
 {
-    volatile uint8_t res;
-    volatile uint8_t prev_conf;
+    uint8_t res;
+    uint8_t prev_conf;
     
     if (handle == NULL)                                                                /* check handle */
     {
@@ -252,7 +252,7 @@ uint8_t pcf8591_set_auto_increment(pcf8591_handle_t *handle, pcf8591_bool_t enab
     prev_conf = handle->conf;                                                          /* save conf */
     handle->conf &= ~(1 << 2);                                                         /* clear auto bit */
     handle->conf |= enable << 2;                                                       /* set enable */
-    if (enable)                                                                        /* if enable auto increment */
+    if (enable != 0)                                                                   /* if enable auto increment */
     {
         handle->conf |= 0x40;                                                          /* set output bit */
     }
@@ -261,7 +261,7 @@ uint8_t pcf8591_set_auto_increment(pcf8591_handle_t *handle, pcf8591_bool_t enab
         handle->conf &= ~0x40;                                                         /* clear output bit */
     }
     res = handle->iic_write_cmd(handle->iic_addr, (uint8_t *)&handle->conf, 1);        /* write command */
-    if (res)
+    if (res != 0)                                                                      /* check error */
     {
         handle->debug_print("pcf8591: write command failed.\n");                       /* write command failed */
         handle->conf = prev_conf;                                                      /* recover conf */
@@ -401,7 +401,7 @@ uint8_t pcf8591_init(pcf8591_handle_t *handle)
         return 3;                                                        /* return error */
     }
     
-    if (handle->iic_init())                                              /* iic init */
+    if (handle->iic_init() != 0)                                         /* iic init */
     {
         handle->debug_print("pcf8591: iic init failed.\n");              /* iic init failed */
        
@@ -424,8 +424,8 @@ uint8_t pcf8591_init(pcf8591_handle_t *handle)
  */
 uint8_t pcf8591_deinit(pcf8591_handle_t *handle)
 {
-    volatile uint8_t res;
-    volatile uint8_t buf[2];
+    uint8_t res;
+    uint8_t buf[2];
     
     if (handle == NULL)                                                      /* check handle */
     {
@@ -439,14 +439,14 @@ uint8_t pcf8591_deinit(pcf8591_handle_t *handle)
     buf[0] = 0x00;                                                           /* set conf */
     buf[1] = 0x00;                                                           /* set 0x00 */
     res = handle->iic_write_cmd(handle->iic_addr, (uint8_t *)buf, 2);        /* write data */
-    if (res)                                                                 /* check error */
+    if (res != 0)                                                            /* check error */
     {
         handle->debug_print("pcf8591: write command failed.\n");             /* write failed */
        
         return 1;                                                            /* return error */
     }
     res = handle->iic_deinit();                                              /* iic deinit */
-    if (res)                                                                 /* check error */
+    if (res != 0)                                                            /* check error */
     {
         handle->debug_print("pcf8591: iic deinit failed.\n");                /* iic deinit failed */
        
@@ -470,9 +470,9 @@ uint8_t pcf8591_deinit(pcf8591_handle_t *handle)
  */
 uint8_t pcf8591_write(pcf8591_handle_t *handle, uint8_t data)
 {
-    volatile uint8_t res;
-    volatile uint8_t buf[2];
-    volatile uint16_t conf;
+    uint8_t res;
+    uint8_t buf[2];
+    uint8_t conf;
     
     if (handle == NULL)                                                      /* check handle */
     {
@@ -487,7 +487,7 @@ uint8_t pcf8591_write(pcf8591_handle_t *handle, uint8_t data)
     buf[0] = conf;                                                           /* set conf */
     buf[1] = data;                                                           /* set data */
     res = handle->iic_write_cmd(handle->iic_addr, (uint8_t *)buf, 2);        /* write data */
-    if (res)                                                                 /* check error */
+    if (res != 0)                                                            /* check error */
     {
         handle->debug_print("pcf8591: write command failed.\n");             /* write failed */
        
@@ -538,13 +538,12 @@ uint8_t pcf8591_dac_convert_to_register(pcf8591_handle_t *handle, float dac, uin
  */
 uint8_t pcf8591_read(pcf8591_handle_t *handle, int16_t *raw, float *adc)
 {
-    volatile uint8_t res;
-    volatile uint8_t mode;
-    volatile uint8_t channel;
-    volatile uint8_t u_data;
-    volatile int8_t  s_data;
-    volatile uint8_t buf[1];
-    volatile uint16_t conf;
+    uint8_t res;
+    uint8_t mode;
+    uint8_t channel;
+    uint8_t u_data;
+    int8_t  s_data;
+    uint8_t buf[1];
     
     if (handle == NULL)                                                       /* check handle */
     {
@@ -555,7 +554,7 @@ uint8_t pcf8591_read(pcf8591_handle_t *handle, int16_t *raw, float *adc)
         return 3;                                                             /* return error */
     }
     
-    if (handle->conf & (1 << 2))                                              /* check mode */
+    if ((handle->conf & (1 << 2)) != 0)                                       /* check mode */
     {
         handle->debug_print("pcf8591: can't use this function.\n");           /* channel is invalid */
         
@@ -581,9 +580,8 @@ uint8_t pcf8591_read(pcf8591_handle_t *handle, int16_t *raw, float *adc)
             return 1;                                                         /* return error */
         }
     }
-    conf = handle->conf & ~0x40;                                              /* set config */
     res = handle->iic_read_cmd(handle->iic_addr, (uint8_t *)buf, 1);          /* read data */
-    if (res)                                                                  /* check error */
+    if (res != 0)                                                             /* check error */
     {
         handle->debug_print("pcf8591: read command failed.\n");               /* read failed */
        
@@ -598,30 +596,28 @@ uint8_t pcf8591_read(pcf8591_handle_t *handle, int16_t *raw, float *adc)
                 u_data = buf[0];                                              /* get data */
                 *raw = (int16_t)(u_data);                                     /* get raw */
                 *adc = (float)(*raw) / 256.0f * handle->ref_voltage;          /* convert to read data */
+                res = 0;                                                      /* successful */
             }
             else if (channel == 1)                                            /* channel 1 */
             {
                 u_data = buf[0];                                              /* get data */
                 *raw = (int16_t)(u_data);                                     /* get raw */
                 *adc = (float)(*raw) / 256.0f * handle->ref_voltage;          /* convert to read data */
+                res = 0;                                                      /* successful */
             }
             else if (channel == 2)                                            /* channel 2 */
             {
                 u_data = buf[0];                                              /* get data */
                 *raw = (int16_t)(u_data);                                     /* get raw */
                 *adc = (float)(*raw) / 256.0f * handle->ref_voltage;          /* convert to read data */
+                res = 0;                                                      /* successful */
             }
-            else if (channel == 3)                                            /* channel 3 */
+            else                                                              /* channel 3 */
             {
                 u_data = buf[0];                                              /* get data */
                 *raw = (int16_t)(u_data);                                     /* get raw */
                 *adc = (float)(*raw) / 256.0f * handle->ref_voltage;          /* convert to read data */
-            }
-            else
-            {
-                handle->debug_print("pcf8591: channel is invalid.\n");        /* channel is invalid */
-                
-                return 1;                                                     /* return error */
+                res = 0;                                                      /* successful */
             }
             
             break;                                                            /* break */
@@ -633,24 +629,26 @@ uint8_t pcf8591_read(pcf8591_handle_t *handle, int16_t *raw, float *adc)
                 s_data = (int8_t)(buf[0]);                                    /* get data */
                 *raw = (int16_t)(s_data);                                     /* get raw */
                 *adc = (float)(*raw) / 256.0f * handle->ref_voltage;          /* convert to read data */
+                res = 0;                                                      /* successful */
             }
             else if (channel == 1)                                            /* channel 1 */
             {
                 s_data = (int8_t)(buf[0]);                                    /* get data */
                 *raw = (int16_t)(s_data);                                     /* get raw */
                 *adc = (float)(*raw) / 256.0f * handle->ref_voltage;          /* convert to read data */
+                res = 0;                                                      /* successful */
             }
             else if (channel == 2)                                            /* channel */
             {
                 s_data = (int8_t)(buf[0]);                                    /* get data */
                 *raw = (int16_t)(s_data);                                     /* get raw */
                 *adc = (float)(*raw) / 256.0f * handle->ref_voltage;          /* convert to read data */
+                res = 0;                                                      /* successful */
             }
             else
             {
                 handle->debug_print("pcf8591: channel is invalid.\n");        /* channel is invalid */
-                
-                return 1;                                                     /* return error */
+                res = 1;                                                      /* failed */
             }
             
             break;                                                            /* break */
@@ -662,24 +660,26 @@ uint8_t pcf8591_read(pcf8591_handle_t *handle, int16_t *raw, float *adc)
                 u_data = buf[0];                                              /* get data */
                 *raw = (int16_t)(u_data);                                     /* get raw */
                 *adc = (float)(*raw) / 256.0f * handle->ref_voltage;          /* convert to read data */
+                res = 0;                                                      /* successful */
             }
             else if (channel == 1)                                            /* channel 1 */
             {
                 u_data = buf[0];                                              /* get data */
                 *raw = (int16_t)(u_data);                                     /* get raw */
                 *adc = (float)(*raw) / 256.0f * handle->ref_voltage;          /* convert to read data */
+                res = 0;                                                      /* successful */
             }
             else if (channel == 2)                                            /* channel 2 */
             {
                 s_data = (int8_t)(buf[0]);                                    /* get data  */
                 *raw = (int16_t)(s_data);                                     /* get raw */
                 *adc = (float)(*raw) / 256.0f * handle->ref_voltage;          /* convert to read data */
+                res = 0;                                                      /* successful */
             }
             else
             {
                 handle->debug_print("pcf8591: channel is invalid.\n");        /* channel is invalid */
-                
-                return 1;                                                     /* return error */
+                res = 1;                                                      /* failed */
             }
             
             break;                                                            /* break */
@@ -691,18 +691,19 @@ uint8_t pcf8591_read(pcf8591_handle_t *handle, int16_t *raw, float *adc)
                 s_data = (int8_t)(buf[0]);                                    /* get data */
                 *raw = (int16_t)(s_data);                                     /* get raw */
                 *adc = (float)(*raw) / 256.0f * handle->ref_voltage;          /* convert to read data */
+                res = 0;                                                      /* successful */
             }
             else if (channel == 1)                                            /* channel 1 */
             {
                 s_data = (int8_t)(buf[0]);                                    /* get data */
                 *raw = (int16_t)(s_data);                                     /* get raw */
                 *adc = (float)(*raw) / 256.0f * handle->ref_voltage;          /* convert to read data */
+                res = 0;                                                      /* successful */
             }
             else
             {
                 handle->debug_print("pcf8591: channel is invalid.\n");        /* channel is invalid */
-                
-                return 1;                                                     /* return error */
+                res = 1;                                                      /* failed */
             }
             
             break;                                                            /* break */
@@ -710,12 +711,13 @@ uint8_t pcf8591_read(pcf8591_handle_t *handle, int16_t *raw, float *adc)
         default :
         {
             handle->debug_print("pcf8591: mode is invalid.\n");               /* mode is invalid */
+            res = 1;                                                          /* failed */
             
-            return 1;                                                         /* return error */
+            break;                                                            /* break */
         }
     }
     
-    return 0;                                                                 /* success return 0 */
+    return res;                                                               /* return the result */
 }
 
 /**
@@ -733,14 +735,12 @@ uint8_t pcf8591_read(pcf8591_handle_t *handle, int16_t *raw, float *adc)
  */
 uint8_t pcf8591_multiple_read(pcf8591_handle_t *handle, int16_t *raw, float *adc, uint8_t *len)
 {
-    volatile uint8_t res;
-    volatile uint8_t mode;
-    volatile uint8_t i, j;
-    volatile uint8_t channel;
-    volatile uint8_t u_data;
-    volatile int8_t  s_data;
-    volatile uint8_t buf[4];
-    volatile uint16_t conf;
+    uint8_t res;
+    uint8_t mode;
+    uint8_t i, j;
+    uint8_t u_data;
+    int8_t  s_data;
+    uint8_t buf[4];
     
     if (handle == NULL)                                                       /* check handle */
     {
@@ -758,7 +758,6 @@ uint8_t pcf8591_multiple_read(pcf8591_handle_t *handle, int16_t *raw, float *adc
         return 1;                                                             /* return error */
     }
     mode = (handle->conf >> 4) & 0x03;                                        /* check mode */
-    channel = handle->conf & 0x03;                                            /* check channel */
     if (mode == 0)                                                            /* mode 0 */
     {
         i = 4;                                                                /* 4 */
@@ -774,22 +773,17 @@ uint8_t pcf8591_multiple_read(pcf8591_handle_t *handle, int16_t *raw, float *adc
         i = 3;                                                                /* 3 */
         i = i<(*len) ? i : (*len);
     }                                                                         /* get min length */
-    else if (mode == 3)                                                       /* mode 3 */
+    else                                                                      /* mode 3 */
     {
         i = 2;                                                                /* 2 */
         i = i<(*len) ? i : (*len);                                            /* get min length */
     }
-    else
-    {
-        handle->debug_print("pcf8591: mode is invalid.\n");                   /* mode is invalid */
-        
-        return 1;
-    }
-    conf = handle->conf & ~0x40;                                              /* set config */
+    
+    memset(buf, 0, sizeof(uint8_t) * 4);                                      /* clear the buffer */
     for (j = 0; j < i; j++)
     {
         res = handle->iic_read_cmd(handle->iic_addr, (uint8_t *)&buf[j], 1);  /* read data */
-        if (res)                                                              /* check error */
+        if (res != 0)                                                         /* check error */
         {
             handle->debug_print("pcf8591: read command failed.\n");           /* read failed */
            
@@ -820,6 +814,7 @@ uint8_t pcf8591_multiple_read(pcf8591_handle_t *handle, int16_t *raw, float *adc
             *raw = (int16_t)(u_data);                                         /* get raw */
             *adc = (float)(*raw) / 256.0f * handle->ref_voltage;              /* convert to read data */
             *len = i;                                                         /* set length */
+            res = 0;                                                          /* successful */
             
             break;                                                            /* break */
         }
@@ -839,6 +834,7 @@ uint8_t pcf8591_multiple_read(pcf8591_handle_t *handle, int16_t *raw, float *adc
             *raw = (int16_t)(s_data);                                         /* get raw */
             *adc = (float)(*raw) / 256.0f * handle->ref_voltage;              /* convert to read data */
             *len = i;                                                         /* set length */
+            res = 0;                                                          /* successful */
             
             break;                                                            /* break */
         }
@@ -858,6 +854,7 @@ uint8_t pcf8591_multiple_read(pcf8591_handle_t *handle, int16_t *raw, float *adc
             *raw = (int16_t)(s_data);                                         /* get raw */
             *adc = (float)(*raw) / 256.0f * handle->ref_voltage;              /* convert to read data */
             *len = i;                                                         /* set length */
+            res = 0;                                                          /* successful */
             
             break;                                                            /* break */
         }
@@ -872,19 +869,21 @@ uint8_t pcf8591_multiple_read(pcf8591_handle_t *handle, int16_t *raw, float *adc
             *raw = (int16_t)(s_data);                                         /* get raw */
             *adc = (float)(*raw) / 256.0f * handle->ref_voltage;              /* convert to read data */
             *len = i;                                                         /* set length */
+            res = 0;                                                          /* successful */
             
             break;                                                            /* break */
         }
         default :
         {
             handle->debug_print("pcf8591: mode is invalid.\n");               /* mode is invalid */
+            res = 1;                                                          /* failed */
             
-            return 1;                                                         /* return error */
+            break;                                                            /* break */
         }
     }
     
     
-    return 0;                                                                 /* success return 0 */
+    return res;                                                               /* return the result */
 }
 
 /**

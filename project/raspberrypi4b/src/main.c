@@ -134,7 +134,7 @@ uint8_t pcf8591(uint8_t argc, char **argv)
                 address = (pcf8591_address_t)atoi(argv[4]);
                 
                 /* run reg test */
-                if (pcf8591_register_test(address))
+                if (pcf8591_register_test(address) != 0)
                 {
                     return 1;
                 }
@@ -180,7 +180,7 @@ uint8_t pcf8591(uint8_t argc, char **argv)
                 address = (pcf8591_address_t)atoi(argv[5]);
         
                 /* run reg test */
-                if (pcf8591_read_write_test(address, atoi(argv[3])))
+                if (pcf8591_read_write_test(address, atoi(argv[3])) != 0)
                 {
                     return 1;
                 }
@@ -211,7 +211,7 @@ uint8_t pcf8591(uint8_t argc, char **argv)
             /* basic function */
             if (strcmp("basic", argv[2]) == 0)
             {
-                volatile uint8_t res;
+                uint8_t res;
                 pcf8591_address_t address;
 
                 if (strcmp("-o", argv[3]) != 0)
@@ -230,22 +230,22 @@ uint8_t pcf8591(uint8_t argc, char **argv)
                 }
                 address = (pcf8591_address_t)atoi(argv[6]);
                 res = pcf8591_basic_init(address, PCF8591_MODE_AIN0123_GND);
-                if (res)
+                if (res != 0)
                 {
                     pcf8591_interface_debug_print("pcf8591: init failed.\n");
                     
                     return 1;
                 }
-                res = pcf8591_basic_write(atof(argv[4]));
-                if (res)
+                res = pcf8591_basic_write((float)atof(argv[4]));
+                if (res != 0)
                 {
                     pcf8591_interface_debug_print("pcf8591: write failed.\n");
-                    pcf8591_basic_deinit();
+                    (void)pcf8591_basic_deinit();
                     
                     return 1;
                 }
                 pcf8591_interface_debug_print("pcf8591: write %0.3f.\n", atof(argv[4]));
-                pcf8591_basic_deinit();
+                (void)pcf8591_basic_deinit();
                 
                 return 0;
             }
@@ -253,7 +253,7 @@ uint8_t pcf8591(uint8_t argc, char **argv)
             /* increment function */
             else if (strcmp("increment", argv[2]) == 0)
             {
-                volatile uint8_t res;
+                uint8_t res;
                 pcf8591_address_t address;
 
                 if (strcmp("-o", argv[3]) != 0)
@@ -272,22 +272,22 @@ uint8_t pcf8591(uint8_t argc, char **argv)
                 }
                 address = (pcf8591_address_t)atoi(argv[6]);
                 res = pcf8591_increment_init(address, PCF8591_MODE_AIN0123_GND);
-                if (res)
+                if (res != 0)
                 {
                     pcf8591_interface_debug_print("pcf8591: init failed.\n");
                     
                     return 1;
                 }
-                res = pcf8591_increment_write(atof(argv[4]));
-                if (res)
+                res = pcf8591_increment_write((float)atof(argv[4]));
+                if (res != 0)
                 {
                     pcf8591_interface_debug_print("pcf8591: write failed.\n");
-                    pcf8591_increment_deinit();
+                    (void)pcf8591_increment_deinit();
                     
                     return 1;
                 }
                 pcf8591_interface_debug_print("pcf8591: write %0.3f.\n", atof(argv[4]));
-                pcf8591_increment_deinit();
+                (void)pcf8591_increment_deinit();
                 
                 return 0;
             }
@@ -313,11 +313,11 @@ uint8_t pcf8591(uint8_t argc, char **argv)
             /* basic function */
             if (strcmp("increment", argv[2]) == 0)
             {
-                volatile uint8_t res;
-                volatile int16_t raws[4];
-                volatile float adcs[4];
-                volatile uint8_t len;
-                volatile uint32_t i, j, times;
+                uint8_t res;
+                int16_t raws[4];
+                float adcs[4];
+                uint8_t len;
+                uint32_t i, j, times;
                 pcf8591_mode_t mode;
                 pcf8591_address_t address;
 
@@ -364,21 +364,21 @@ uint8_t pcf8591(uint8_t argc, char **argv)
                 }
 
                 res = pcf8591_increment_init(address, mode);
-                if (res)
+                if (res != 0)
                 {
                     pcf8591_interface_debug_print("pcf8591: init failed.\n");
                     
                     return 1;
                 }
-                times = atof(argv[4]);
+                times = atoi(argv[4]);
                 
                 /* read prev data */
                 len = 4;
                 res = pcf8591_increment_read((int16_t *)raws, (float *)adcs, (uint8_t *)&len);
-                if (res)
+                if (res != 0)
                 {
                     pcf8591_interface_debug_print("pcf8591: increment read failed.\n");
-                    pcf8591_increment_deinit();
+                    (void)pcf8591_increment_deinit();
                     
                     return 1;
                 }
@@ -388,10 +388,10 @@ uint8_t pcf8591(uint8_t argc, char **argv)
                     /* read data */
                     len = 4;
                     res = pcf8591_increment_read((int16_t *)raws, (float *)adcs, (uint8_t *)&len);
-                    if (res)
+                    if (res != 0)
                     {
                         pcf8591_interface_debug_print("pcf8591: read failed.\n");
-                        pcf8591_increment_deinit();
+                        (void)pcf8591_increment_deinit();
                         
                         return 1;
                     }
@@ -403,7 +403,7 @@ uint8_t pcf8591(uint8_t argc, char **argv)
                     }
                     pcf8591_interface_delay_ms(1000);
                 }
-                pcf8591_increment_deinit();
+                (void)pcf8591_increment_deinit();
                 
                 return 0;
             }
@@ -429,10 +429,10 @@ uint8_t pcf8591(uint8_t argc, char **argv)
             /* basic function */
             if (strcmp("basic", argv[2]) == 0)
             {
-                volatile uint8_t res;
-                volatile int16_t raw;
-                volatile float adc;
-                volatile uint32_t i, times;
+                uint8_t res;
+                int16_t raw;
+                float adc;
+                uint32_t i, times;
                 pcf8591_mode_t mode;
                 pcf8591_channel_t channel;
                 pcf8591_address_t address;
@@ -505,28 +505,28 @@ uint8_t pcf8591(uint8_t argc, char **argv)
                     return 5;
                 }
                 res = pcf8591_basic_init(address, mode);
-                if (res)
+                if (res != 0)
                 {
                     pcf8591_interface_debug_print("pcf8591: init failed.\n");
                     
                     return 1;
                 }
                 res = pcf8591_basic_set_channel(channel);
-                if (res)
+                if (res != 0)
                 {
                     pcf8591_interface_debug_print("pcf8591: set channel failed.\n");
-                    pcf8591_basic_deinit();
+                    (void)pcf8591_basic_deinit();
                     
                     return 1;
                 }
-                times = atof(argv[4]);
+                times = atoi(argv[4]);
 
                 /* read prev data */
                 res = pcf8591_basic_read((int16_t *)&raw, (float *)&adc);
-                if (res)
+                if (res != 0)
                 {
                     pcf8591_interface_debug_print("pcf8591: read failed.\n");
-                    pcf8591_basic_deinit();
+                    (void)pcf8591_basic_deinit();
                     
                     return 1;
                 }
@@ -535,10 +535,10 @@ uint8_t pcf8591(uint8_t argc, char **argv)
                 {
                     /* read data */
                     res = pcf8591_basic_read((int16_t *)&raw, (float *)&adc);
-                    if (res)
+                    if (res != 0)
                     {
                         pcf8591_interface_debug_print("pcf8591: read failed.\n");
-                        pcf8591_basic_deinit();
+                        (void)pcf8591_basic_deinit();
                         
                         return 1;
                     }
@@ -546,7 +546,7 @@ uint8_t pcf8591(uint8_t argc, char **argv)
                     pcf8591_interface_debug_print("pcf8591: adc is %0.3f.\n", adc);
                     pcf8591_interface_delay_ms(1000);
                 }
-                pcf8591_basic_deinit();
+                (void)pcf8591_basic_deinit();
                 
                 return 0;
             }

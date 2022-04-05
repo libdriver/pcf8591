@@ -1,4 +1,4 @@
-[English](/README.md) | [ 简体中文](/README_zh-Hans.md) | [繁體中文](/README_zh-Hant.md)
+[English](/README.md) | [ 简体中文](/README_zh-Hans.md) | [繁體中文](/README_zh-Hant.md) | [日本語](/README_ja.md) | [Deutsch](/README_de.md) | [한국어](/README_ko.md)
 
 <div align=center>
 <img src="/doc/image/logo.png"/>
@@ -6,11 +6,11 @@
 
 ## LibDriver PCF8591
 
-[![API](https://img.shields.io/badge/api-reference-blue)](https://www.libdriver.com/docs/pcf8591/index.html) [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](/LICENSE)
+[![MISRA](https://img.shields.io/badge/misra-compliant-brightgreen.svg)](/misra/README.md) [![API](https://img.shields.io/badge/api-reference-blue.svg)](https://www.libdriver.com/docs/pcf8591/index.html) [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](/LICENSE)
 
 PCF8591是一款单芯片、单电源、低功率8位CMOS数据采集器件，带有四个模拟输入、一个模拟输出和一个串行I²C总线接口。三个地址引脚A0、A1和A2用于编程硬件地址，允许使用最多八个连接至I²C总线的器件而无需额外硬件。通过两线双向I²C总线将地址、控制和数据串行传送至器件或从器件串行传送。器件功能包括模拟输入多路复用、片上跟踪和保持功能、8位模拟-数字转换和8位数字-模拟转换。最大转换速率由I²C总线的最大速度决定。PCF8591被用于闭环控制系统、远程数据采集的低功率转换器、电池供电设备和汽车音响电视机应用中的模拟采集。
 
-LibDriver PCF8591是LibDriver推出的PCF8591的全功能驱动，该驱动提供AD读取、DA输出、AD连续读取等功能。
+LibDriver PCF8591是LibDriver推出的PCF8591的全功能驱动，该驱动提供AD读取、DA输出、AD连续读取等功能并且它符合MISRA标准。
 
 ### 目录
 

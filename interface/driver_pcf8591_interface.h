@@ -35,8 +35,8 @@
  * </table>
  */
 
-#ifndef _DRIVER_PCF8591_INTERFACE_H_
-#define _DRIVER_PCF8591_INTERFACE_H_
+#ifndef DRIVER_PCF8591_INTERFACE_H
+#define DRIVER_PCF8591_INTERFACE_H
 
 #include "driver_pcf8591.h"
 
@@ -103,10 +103,9 @@ void pcf8591_interface_delay_ms(uint32_t ms);
 /**
  * @brief     interface print format data
  * @param[in] fmt is the format data
- * @return    length of the send data
  * @note      none
  */
-uint16_t pcf8591_interface_debug_print(char *fmt, ...);
+void pcf8591_interface_debug_print(const char *const fmt, ...);
 
 /**
  * @}

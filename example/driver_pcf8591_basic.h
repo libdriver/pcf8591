@@ -35,8 +35,8 @@
  * </table>
  */
 
-#ifndef _DRIVER_PCF8591_BASIC_H_
-#define _DRIVER_PCF8591_BASIC_H_
+#ifndef DRIVER_PCF8591_BASIC_H
+#define DRIVER_PCF8591_BASIC_H
 
 #include "driver_pcf8591_interface.h"
 
