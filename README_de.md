@@ -51,42 +51,75 @@ Fügen Sie /src, /interface und /example zu Ihrem Projekt hinzu.
 
 ```C
 uint8_t res;
-uint32_t i;
-static uint32_t gs_rgb[21]; 
-static uint8_t gs_temp[1024];
+uint8_t i;
+int16_t raw;
+float adc;
 
-/* init */
-res = ws2812b_basic_init();
+res = pcf8591_basic_init(PCF8591_ADDRESS_A000, PCF8591_MODE_AIN0123_GND);
 if (res)
 {
-    return 1;
-}
-
-/* write color */
-for (i = 0; i < 21; i++)
-{
-    gs_rgb[i] = color;
-}
-
-/* write data */
-res = ws2812b_basic_write(gs_rgb, 21, gs_temp, 1024);
-if (res)
-{
-    ws2812b_basic_deinit();
+    pcf8591_interface_debug_print("pcf8591: init failed.\n");
 
     return 1;
 }
 
-/* close the chip */
-res = ws2812b_basic_deinit();
+...
+
+res = pcf8591_basic_write(1.2f);
 if (res)
 {
+    pcf8591_interface_debug_print("pcf8591: write failed.\n");
+    pcf8591_basic_deinit();
+
     return 1;
 }
-else
+
+...
+
+res = pcf8591_basic_set_channel(PCF8591_CHANNEL_0);
+if (res)
 {
-    return 0;
+    pcf8591_interface_debug_print("pcf8591: set channel failed.\n");
+    pcf8591_basic_deinit();
+
+    return 1;
 }
+
+...
+
+/* read prev data */
+res = pcf8591_basic_read((int16_t *)&raw, (float *)&adc);
+if (res)
+{
+    pcf8591_interface_debug_print("pcf8591: read failed.\n");
+    pcf8591_basic_deinit();
+
+    return 1;
+}
+pcf8591_interface_delay_ms(1000);
+for (i = 0; i < 3; i++)
+{
+    /* read data */
+    res = pcf8591_basic_read((int16_t *)&raw, (float *)&adc);
+    if (res)
+    {
+        pcf8591_interface_debug_print("pcf8591: read failed.\n");
+        pcf8591_basic_deinit();
+
+        return 1;
+    }
+    pcf8591_interface_debug_print("pcf8591: adc is %0.3f.\n", adc);
+    pcf8591_interface_delay_ms(1000);
+    
+    ...
+    
+}
+
+...
+
+pcf8591_basic_deinit();
+
+return 0;
 ```
 
 #### example increment
