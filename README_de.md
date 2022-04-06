@@ -9,7 +9,7 @@
 
 Der PCF8591 ist ein Single-Chip-Single-Supply-Low-Power-8-Bit-CMOS-Datenerfassungsgerät mit vier analogen Eingängen, einem analogen Ausgang und einer seriellen I2C-Bus-Schnittstelle.Drei Adress-Pins A0, A1 und A2 werden zur Programmierung verwendet Hardware-Adresse, die den Einsatz von bis zu acht an den I2C-Bus angeschlossenen Geräten ohne zusätzliche Hardware ermöglicht.Adresse, Steuerung und Daten zum und vom Gerät werden seriell über den zweiadrigen, bidirektionalen I2C-Bus übertragen.Zu den Funktionen des Geräts gehören: analoges Eingangs-Multiplexing, On-Chip-Track-and-Hold-Funktion, 8-Bit-Analog-Digital-Wandlung und eine 8-Bit-Digital-Analog-Wandlung Die maximale Wandlungsrate ist durch die maximale Geschwindigkeit des I2C-Busses gegeben.PCF8591 wird in Closed-Loop-Steuerungssystemen, Low-Power-Konvertern für die Ferndatenerfassung, batteriebetriebenen Geräten und analogen Erfassungen in Automobil-Audio-TV-Anwendungen verwendet.
 
-LibDriver PCF8591 ist ein voll funktionsfähiger Treiber von PCF8591, der von LibDriver gestartet wurde. Er bietet AD-Lesen, DA-Ausgabe, kontinuierliches AD-Lesen und andere Funktionen, und LibDriver ist MISRA-konform.
+LibDriver PCF8591 ist ein voll funktionsfähiger Treiber von PCF8591, der von LibDriver gestartet wurde. Er bietet AD-Lesen, DA-Ausgabe, kontinuierliches AD-Lesen und andere Funktionen. LibDriver entspricht MISRA.
 
 ### Inhaltsverzeichnis
 
