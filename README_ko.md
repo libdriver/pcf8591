@@ -6,7 +6,7 @@
 
 ## LibDriver PCF8591
 
-[![MISRA](https://img.shields.io/badge/misra-compliant-brightgreen.svg)](/misra/README.md) [![API](https://img.shields.io/badge/api-reference-blue)](https://www.libdriver.com/docs/ws2812b/index.html) [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](/LICENSE)
+[![MISRA](https://img.shields.io/badge/misra-compliant-brightgreen.svg)](/misra/README.md) [![API](https://img.shields.io/badge/api-reference-blue)](https://www.libdriver.com/docs/pcf8591/index.html) [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](/LICENSE)
 
 PCF8591은 4개의 아날로그 입력, 1개의 아날로그 출력 및 직렬 I2C 버스 인터페이스가 있는 단일 칩, 단일 공급 저전력 8비트 CMOS 데이터 수집 장치입니다.3개의 주소 핀 A0, A1 및 A2는 프로그래밍에 사용됩니다. 추가 하드웨어 없이 I2C 버스에 연결된 최대 8개의 장치를 사용할 수 있는 하드웨어 주소 장치와 주고받는 주소, 제어 및 데이터는 2라인 양방향 I2C 버스를 통해 직렬로 전송됩니다. 장치의 기능은 다음과 같습니다. 아날로그 입력 다중화, 온칩 트랙 및 홀드 기능, 8비트 아날로그-디지털 변환 및 8비트 디지털-아날로그 변환 최대 변환 속도는 I2C 버스의 최대 속도에 의해 지정됩니다.PCF8591 폐루프 제어 시스템, 원격 데이터 수집을 위한 저전력 컨버터, 배터리 구동 장비 및 자동차 오디오 TV 애플리케이션의 아날로그 수집에 사용됩니다.
 

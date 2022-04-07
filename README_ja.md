@@ -6,7 +6,7 @@
 
 ## LibDriver PCF8591
 
-[![MISRA](https://img.shields.io/badge/misra-compliant-brightgreen.svg)](/misra/README.md) [![API](https://img.shields.io/badge/api-reference-blue)](https://www.libdriver.com/docs/ws2812b/index.html) [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](/LICENSE)
+[![MISRA](https://img.shields.io/badge/misra-compliant-brightgreen.svg)](/misra/README.md) [![API](https://img.shields.io/badge/api-reference-blue)](https://www.libdriver.com/docs/pcf8591/index.html) [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](/LICENSE)
 
 PCF8591は、4つのアナログ入力、1つのアナログ出力、およびシリアルI²Cバスインターフェイスを備えた、シングルチップ、シングルサプライ、低電力の8ビットCMOSデータ収集デバイスです。 3つのアドレスピンA0、A1、およびA2は、ハードウェアアドレスをプログラムするために使用され、I²Cバスに接続された最大8つのデバイスを追加のハードウェアなしで使用できるようにします。 アドレス、制御、およびデータは、2線式の双方向I²Cバスを介してデバイスとの間でシリアルに転送されます。 デバイスの機能には、アナログ入力多重化、オンチップトラックアンドホールド、8ビットアナログ-デジタル変換、および8ビットデジタル-アナログ変換が含まれます。 最大スルーレートは、I²Cバスの最大速度によって決まります。 PCF8591は、閉ループ制御システムのアナログ取得、リモートデータ取得用の低電力コンバータ、バッテリ駆動機器、およびカーオーディオTVアプリケーションに使用されます。
 
