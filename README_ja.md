@@ -57,7 +57,7 @@ int16_t raw;
 float adc;
 
 res = pcf8591_basic_init(PCF8591_ADDRESS_A000, PCF8591_MODE_AIN0123_GND);
-if (res)
+if (res != 0)
 {
     pcf8591_interface_debug_print("pcf8591: init failed.\n");
 
@@ -67,10 +67,10 @@ if (res)
 ...
 
 res = pcf8591_basic_write(1.2f);
-if (res)
+if (res != 0)
 {
     pcf8591_interface_debug_print("pcf8591: write failed.\n");
-    pcf8591_basic_deinit();
+    (void)pcf8591_basic_deinit();
 
     return 1;
 }
@@ -78,10 +78,10 @@ if (res)
 ...
 
 res = pcf8591_basic_set_channel(PCF8591_CHANNEL_0);
-if (res)
+if (res != 0)
 {
     pcf8591_interface_debug_print("pcf8591: set channel failed.\n");
-    pcf8591_basic_deinit();
+    (void)pcf8591_basic_deinit();
 
     return 1;
 }
@@ -90,10 +90,10 @@ if (res)
 
 /* read prev data */
 res = pcf8591_basic_read((int16_t *)&raw, (float *)&adc);
-if (res)
+if (res != 0)
 {
     pcf8591_interface_debug_print("pcf8591: read failed.\n");
-    pcf8591_basic_deinit();
+    (void)pcf8591_basic_deinit();
 
     return 1;
 }
@@ -102,10 +102,10 @@ for (i = 0; i < 3; i++)
 {
     /* read data */
     res = pcf8591_basic_read((int16_t *)&raw, (float *)&adc);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: read failed.\n");
-        pcf8591_basic_deinit();
+        (void)pcf8591_basic_deinit();
 
         return 1;
     }
@@ -118,7 +118,7 @@ for (i = 0; i < 3; i++)
 
 ...
 
-pcf8591_basic_deinit();
+(void)pcf8591_basic_deinit();
 
 return 0;
 ```
@@ -133,24 +133,22 @@ uint8_t len;
 uint8_t i, j;
 
 res = pcf8591_increment_init(PCF8591_ADDRESS_A000, PCF8591_MODE_AIN0123_GND);
-if (res)
+if (res != 0)
 {
     pcf8591_interface_debug_print("pcf8591: init failed.\n");
 
     return 1;
-
 }
 
 ...
 
 res = pcf8591_increment_write(1.8f);
-if (res)
+if (res != 0)
 {
     pcf8591_interface_debug_print("pcf8591: write failed.\n");
-    pcf8591_basic_deinit();
+    (void)pcf8591_basic_deinit();
 
     return 1;
-
 }
 
 ...
@@ -158,13 +156,12 @@ if (res)
 /* read prev data */
 len = 4;
 res = pcf8591_increment_read((int16_t *)raws, (float *)adcs, (uint8_t *)&len);
-if (res)
+if (res != 0)
 {
     pcf8591_interface_debug_print("pcf8591: increment read failed.\n");
-    pcf8591_increment_deinit();
+    (void)pcf8591_increment_deinit();
 
     return 1;
-
 }
 pcf8591_interface_delay_ms(1000);
 for (i = 0; i < 3; i++)
@@ -172,10 +169,10 @@ for (i = 0; i < 3; i++)
     /* read data */
     len = 4;
     res = pcf8591_increment_read((int16_t *)raws, (float *)adcs, (uint8_t *)&len);
-    if (res)
+    if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: read failed.\n");
-        pcf8591_increment_deinit();
+        (void)pcf8591_increment_deinit();
 
         return 1;
     }
@@ -190,12 +187,12 @@ for (i = 0; i < 3; i++)
     pcf8591_interface_delay_ms(1000);
     
     ...
-
+    
 }
 
 ...
 
-pcf8591_increment_deinit();
+(void)pcf8591_increment_deinit();
 
 return 0;
 ```
