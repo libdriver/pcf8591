@@ -177,51 +177,47 @@ $(document).ready(function(){initNavTree('driver__pcf8591__basic_8c_source.html'
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    res = <a class="code" href="group__pcf8591__base__driver.html#ga6abca278ca1c99c4a5e1a0db84ba4190">pcf8591_set_channel</a>(&amp;gs_handle, channel);</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keywordflow">if</span> (res != 0)</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    {</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        <a class="code" href="group__pcf8591__interface__driver.html#ga6a62514c3088c4e7c450922b75ce226f">pcf8591_interface_debug_print</a>(<span class="stringliteral">&quot;pcf8591: set channel failed.\n&quot;</span>);</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        </div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    }</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    </div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;}</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
-<div class="line"><a name="l00168"></a><span class="lineno"><a class="line" href="group__pcf8591__example__driver.html#ga479a5a31c9d2392096250301017da1e9">  168</a></span>&#160;uint8_t <a class="code" href="group__pcf8591__example__driver.html#ga479a5a31c9d2392096250301017da1e9">pcf8591_basic_read</a>(int16_t *raw, <span class="keywordtype">float</span> *adc)</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;{</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="comment">/* read data */</span></div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="group__pcf8591__base__driver.html#ga0b39dca43839c19d3ec6e0bd8bae3109">pcf8591_read</a>(&amp;gs_handle, raw, adc) != 0)</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    {</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    }</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    {</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    }</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;}</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
-<div class="line"><a name="l00189"></a><span class="lineno"><a class="line" href="group__pcf8591__example__driver.html#gaa77694966f650bcd5140ed2ff2409001">  189</a></span>&#160;uint8_t <a class="code" href="group__pcf8591__example__driver.html#gaa77694966f650bcd5140ed2ff2409001">pcf8591_basic_write</a>(<span class="keywordtype">float</span> adc)</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;{</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    uint8_t res;</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    uint8_t data;</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    </div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="comment">/* convert to register data */</span></div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    res = <a class="code" href="group__pcf8591__base__driver.html#ga020ba9f4bcaf91a966fa79502aec4cac">pcf8591_dac_convert_to_register</a>(&amp;gs_handle, adc, (uint8_t *)&amp;data);</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keywordflow">if</span> (res != 0)</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    {</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        <a class="code" href="group__pcf8591__interface__driver.html#ga6a62514c3088c4e7c450922b75ce226f">pcf8591_interface_debug_print</a>(<span class="stringliteral">&quot;pcf8591: dac convert to register failed.\n&quot;</span>);</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        </div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    }</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    </div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <span class="comment">/* wrire dac */</span></div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="group__pcf8591__base__driver.html#ga1d6327acfcb231d13be82950c1c65077">pcf8591_write</a>(&amp;gs_handle, data) != 0)</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    }</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    </div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;}</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
+<div class="line"><a name="l00166"></a><span class="lineno"><a class="line" href="group__pcf8591__example__driver.html#ga479a5a31c9d2392096250301017da1e9">  166</a></span>&#160;uint8_t <a class="code" href="group__pcf8591__example__driver.html#ga479a5a31c9d2392096250301017da1e9">pcf8591_basic_read</a>(int16_t *raw, <span class="keywordtype">float</span> *adc)</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;{</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="comment">/* read data */</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="group__pcf8591__base__driver.html#ga0b39dca43839c19d3ec6e0bd8bae3109">pcf8591_read</a>(&amp;gs_handle, raw, adc) != 0)</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    {</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    }</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    {</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    }</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;}</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
+<div class="line"><a name="l00187"></a><span class="lineno"><a class="line" href="group__pcf8591__example__driver.html#gaa77694966f650bcd5140ed2ff2409001">  187</a></span>&#160;uint8_t <a class="code" href="group__pcf8591__example__driver.html#gaa77694966f650bcd5140ed2ff2409001">pcf8591_basic_write</a>(<span class="keywordtype">float</span> adc)</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;{</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    uint8_t res;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    uint8_t data;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    </div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="comment">/* convert to register data */</span></div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    res = <a class="code" href="group__pcf8591__base__driver.html#ga020ba9f4bcaf91a966fa79502aec4cac">pcf8591_dac_convert_to_register</a>(&amp;gs_handle, adc, (uint8_t *)&amp;data);</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="keywordflow">if</span> (res != 0)</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    {</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    }</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    </div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="comment">/* wrire dac */</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="group__pcf8591__base__driver.html#ga1d6327acfcb231d13be82950c1c65077">pcf8591_write</a>(&amp;gs_handle, data) != 0)</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    {</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    }</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    {</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    }</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    {</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    }</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;}</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;}</div>
 <div class="ttc" id="adriver__pcf8591__basic_8h_html"><div class="ttname"><a href="driver__pcf8591__basic_8h.html">driver_pcf8591_basic.h</a></div><div class="ttdoc">driver pcf8591 basic include file</div></div>
 <div class="ttc" id="agroup__pcf8591__base__driver_html_ga020ba9f4bcaf91a966fa79502aec4cac"><div class="ttname"><a href="group__pcf8591__base__driver.html#ga020ba9f4bcaf91a966fa79502aec4cac">pcf8591_dac_convert_to_register</a></div><div class="ttdeci">uint8_t pcf8591_dac_convert_to_register(pcf8591_handle_t *handle, float dac, uint8_t *reg)</div><div class="ttdoc">convert a dac value to a register raw data</div><div class="ttdef"><b>Definition:</b> <a href="driver__pcf8591_8c_source.html#l00511">driver_pcf8591.c:511</a></div></div>
 <div class="ttc" id="agroup__pcf8591__base__driver_html_ga0b39dca43839c19d3ec6e0bd8bae3109"><div class="ttname"><a href="group__pcf8591__base__driver.html#ga0b39dca43839c19d3ec6e0bd8bae3109">pcf8591_read</a></div><div class="ttdeci">uint8_t pcf8591_read(pcf8591_handle_t *handle, int16_t *raw, float *adc)</div><div class="ttdoc">read data from the chip</div><div class="ttdef"><b>Definition:</b> <a href="driver__pcf8591_8c_source.html#l00539">driver_pcf8591.c:539</a></div></div>
@@ -237,11 +233,11 @@ $(document).ready(function(){initNavTree('driver__pcf8591__basic_8c_source.html'
 <div class="ttc" id="agroup__pcf8591__base__driver_html_gaeef4974c16b64e4b8943a3a5bd4db1d4"><div class="ttname"><a href="group__pcf8591__base__driver.html#gaeef4974c16b64e4b8943a3a5bd4db1d4">pcf8591_channel_t</a></div><div class="ttdeci">pcf8591_channel_t</div><div class="ttdoc">pcf8591 channel definition</div><div class="ttdef"><b>Definition:</b> <a href="driver__pcf8591_8h_source.html#l00087">driver_pcf8591.h:88</a></div></div>
 <div class="ttc" id="agroup__pcf8591__base__driver_html_gaf6ae6ea059b986cd30746492a8468a53"><div class="ttname"><a href="group__pcf8591__base__driver.html#gaf6ae6ea059b986cd30746492a8468a53">pcf8591_set_auto_increment</a></div><div class="ttdeci">uint8_t pcf8591_set_auto_increment(pcf8591_handle_t *handle, pcf8591_bool_t enable)</div><div class="ttdoc">set the adc auto increment read mode</div><div class="ttdef"><b>Definition:</b> <a href="driver__pcf8591_8c_source.html#l00238">driver_pcf8591.c:238</a></div></div>
 <div class="ttc" id="agroup__pcf8591__base__driver_html_gga545d520813bf15996778fcb744d25fcaa46cedabaf9738e4c9bf25d5b8da43d09"><div class="ttname"><a href="group__pcf8591__base__driver.html#gga545d520813bf15996778fcb744d25fcaa46cedabaf9738e4c9bf25d5b8da43d09">PCF8591_BOOL_FALSE</a></div><div class="ttdeci">@ PCF8591_BOOL_FALSE</div><div class="ttdef"><b>Definition:</b> <a href="driver__pcf8591_8h_source.html#l00080">driver_pcf8591.h:80</a></div></div>
-<div class="ttc" id="agroup__pcf8591__example__driver_html_ga479a5a31c9d2392096250301017da1e9"><div class="ttname"><a href="group__pcf8591__example__driver.html#ga479a5a31c9d2392096250301017da1e9">pcf8591_basic_read</a></div><div class="ttdeci">uint8_t pcf8591_basic_read(int16_t *raw, float *adc)</div><div class="ttdoc">basic example read the adc</div><div class="ttdef"><b>Definition:</b> <a href="driver__pcf8591__basic_8c_source.html#l00168">driver_pcf8591_basic.c:168</a></div></div>
+<div class="ttc" id="agroup__pcf8591__example__driver_html_ga479a5a31c9d2392096250301017da1e9"><div class="ttname"><a href="group__pcf8591__example__driver.html#ga479a5a31c9d2392096250301017da1e9">pcf8591_basic_read</a></div><div class="ttdeci">uint8_t pcf8591_basic_read(int16_t *raw, float *adc)</div><div class="ttdoc">basic example read the adc</div><div class="ttdef"><b>Definition:</b> <a href="driver__pcf8591__basic_8c_source.html#l00166">driver_pcf8591_basic.c:166</a></div></div>
 <div class="ttc" id="agroup__pcf8591__example__driver_html_ga49bda5b5d6d85b33d30aa14c2db67d42"><div class="ttname"><a href="group__pcf8591__example__driver.html#ga49bda5b5d6d85b33d30aa14c2db67d42">PCF8591_BASIC_DEFAULT_REFERENCE_VOLTAGE</a></div><div class="ttdeci">#define PCF8591_BASIC_DEFAULT_REFERENCE_VOLTAGE</div><div class="ttdoc">pcf8591 basic example default definition</div><div class="ttdef"><b>Definition:</b> <a href="driver__pcf8591__basic_8h_source.html#l00057">driver_pcf8591_basic.h:57</a></div></div>
 <div class="ttc" id="agroup__pcf8591__example__driver_html_ga613fbe7c6ff5ed9a4a8b9f6f0a411fde"><div class="ttname"><a href="group__pcf8591__example__driver.html#ga613fbe7c6ff5ed9a4a8b9f6f0a411fde">pcf8591_basic_set_channel</a></div><div class="ttdeci">uint8_t pcf8591_basic_set_channel(pcf8591_channel_t channel)</div><div class="ttdoc">basic example set the channel</div><div class="ttdef"><b>Definition:</b> <a href="driver__pcf8591__basic_8c_source.html#l00143">driver_pcf8591_basic.c:143</a></div></div>
 <div class="ttc" id="agroup__pcf8591__example__driver_html_ga71e7a511f7541292975a42181f176acb"><div class="ttname"><a href="group__pcf8591__example__driver.html#ga71e7a511f7541292975a42181f176acb">pcf8591_basic_init</a></div><div class="ttdeci">uint8_t pcf8591_basic_init(pcf8591_address_t addr, pcf8591_mode_t mode)</div><div class="ttdoc">basic example init</div><div class="ttdef"><b>Definition:</b> <a href="driver__pcf8591__basic_8c_source.html#l00051">driver_pcf8591_basic.c:51</a></div></div>
-<div class="ttc" id="agroup__pcf8591__example__driver_html_gaa77694966f650bcd5140ed2ff2409001"><div class="ttname"><a href="group__pcf8591__example__driver.html#gaa77694966f650bcd5140ed2ff2409001">pcf8591_basic_write</a></div><div class="ttdeci">uint8_t pcf8591_basic_write(float adc)</div><div class="ttdoc">basic example write the adc</div><div class="ttdef"><b>Definition:</b> <a href="driver__pcf8591__basic_8c_source.html#l00189">driver_pcf8591_basic.c:189</a></div></div>
+<div class="ttc" id="agroup__pcf8591__example__driver_html_gaa77694966f650bcd5140ed2ff2409001"><div class="ttname"><a href="group__pcf8591__example__driver.html#gaa77694966f650bcd5140ed2ff2409001">pcf8591_basic_write</a></div><div class="ttdeci">uint8_t pcf8591_basic_write(float adc)</div><div class="ttdoc">basic example write the adc</div><div class="ttdef"><b>Definition:</b> <a href="driver__pcf8591__basic_8c_source.html#l00187">driver_pcf8591_basic.c:187</a></div></div>
 <div class="ttc" id="agroup__pcf8591__example__driver_html_gae70aefc4f26d7e4689540980d49a5a10"><div class="ttname"><a href="group__pcf8591__example__driver.html#gae70aefc4f26d7e4689540980d49a5a10">pcf8591_basic_deinit</a></div><div class="ttdeci">uint8_t pcf8591_basic_deinit(void)</div><div class="ttdoc">basic example deinit</div><div class="ttdef"><b>Definition:</b> <a href="driver__pcf8591__basic_8c_source.html#l00122">driver_pcf8591_basic.c:122</a></div></div>
 <div class="ttc" id="agroup__pcf8591__interface__driver_html_ga05a1e87dba937d75d52741310b1de87c"><div class="ttname"><a href="group__pcf8591__interface__driver.html#ga05a1e87dba937d75d52741310b1de87c">pcf8591_interface_iic_init</a></div><div class="ttdeci">uint8_t pcf8591_interface_iic_init(void)</div><div class="ttdoc">interface iic bus init</div><div class="ttdef"><b>Definition:</b> <a href="driver__pcf8591__interface__template_8c_source.html#l00047">driver_pcf8591_interface_template.c:47</a></div></div>
 <div class="ttc" id="agroup__pcf8591__interface__driver_html_ga58bd695f66663b7d2857bd23ef290904"><div class="ttname"><a href="group__pcf8591__interface__driver.html#ga58bd695f66663b7d2857bd23ef290904">pcf8591_interface_delay_ms</a></div><div class="ttdeci">void pcf8591_interface_delay_ms(uint32_t ms)</div><div class="ttdoc">interface delay ms</div><div class="ttdef"><b>Definition:</b> <a href="driver__pcf8591__interface__template_8c_source.html#l00099">driver_pcf8591_interface_template.c:99</a></div></div>

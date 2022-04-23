@@ -171,8 +171,6 @@ uint8_t pcf8591_increment_write(float adc)
     res = pcf8591_dac_convert_to_register(&gs_handle, adc, (uint8_t *)&data);
     if (res != 0)
     {
-        pcf8591_interface_debug_print("pcf8591: dac convert to register failed.\n");
-        
         return 1;
     }
     
