@@ -148,8 +148,6 @@ uint8_t pcf8591_basic_set_channel(pcf8591_channel_t channel)
     res = pcf8591_set_channel(&gs_handle, channel);
     if (res != 0)
     {
-        pcf8591_interface_debug_print("pcf8591: set channel failed.\n");
-        
         return 1;
     }
     
@@ -195,8 +193,6 @@ uint8_t pcf8591_basic_write(float adc)
     res = pcf8591_dac_convert_to_register(&gs_handle, adc, (uint8_t *)&data);
     if (res != 0)
     {
-        pcf8591_interface_debug_print("pcf8591: dac convert to register failed.\n");
-        
         return 1;
     }
     
