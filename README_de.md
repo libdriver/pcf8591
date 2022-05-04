@@ -27,15 +27,15 @@ LibDriver PCF8591 ist ein voll funktionsfähiger Treiber von PCF8591, der von Li
 
 /src enthält LibDriver PCF8591-Quelldateien.
 
-/interface enthält die plattformunabhängige Vorlage LibDriver PCF8591 IIC。
+/interface enthält die plattformunabhängige Vorlage LibDriver PCF8591 IIC.
 
-/test enthält den Testcode des LibDriver PCF8591-Treibers und dieser Code kann die erforderliche Funktion des Chips einfach testen。
+/test enthält den Testcode des LibDriver PCF8591-Treibers und dieser Code kann die erforderliche Funktion des Chips einfach testen.
 
 /example enthält LibDriver PCF8591-Beispielcode.
 
 /doc enthält das LibDriver PCF8591-Offlinedokument.
 
-/Datenblatt enthält PCF8591-Datenblatt。
+/Datenblatt enthält PCF8591-Datenblatt.
 
 /project enthält den allgemeinen Beispielcode für Linux- und MCU-Entwicklungsboards. Alle Projekte verwenden das Shell-Skript, um den Treiber zu debuggen, und die detaillierten Anweisungen finden Sie in der README.md jedes Projekts.
 
