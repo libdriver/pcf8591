@@ -98,8 +98,8 @@ uint8_t pcf8591_basic_set_channel(pcf8591_channel_t channel);
 uint8_t pcf8591_basic_read(int16_t *raw, float *adc);
 
 /**
- * @brief     basic example write the adc
- * @param[in] adc is a converted adc value
+ * @brief     basic example write the dac
+ * @param[in] dac is a converted dac value
  * @return    status code
  *            - 0 success
  *            - 1 write failed
