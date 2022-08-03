@@ -119,7 +119,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:ga479a5a31c9d2392096250301017da1e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">basic example read the adc  <a href="group__pcf8591__example__driver.html#ga479a5a31c9d2392096250301017da1e9">More...</a><br /></td></tr>
 <tr class="separator:ga479a5a31c9d2392096250301017da1e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa77694966f650bcd5140ed2ff2409001"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__pcf8591__example__driver.html#gaa77694966f650bcd5140ed2ff2409001">pcf8591_basic_write</a> (float adc)</td></tr>
-<tr class="memdesc:gaa77694966f650bcd5140ed2ff2409001"><td class="mdescLeft">&#160;</td><td class="mdescRight">basic example write the adc  <a href="group__pcf8591__example__driver.html#gaa77694966f650bcd5140ed2ff2409001">More...</a><br /></td></tr>
+<tr class="memdesc:gaa77694966f650bcd5140ed2ff2409001"><td class="mdescLeft">&#160;</td><td class="mdescRight">basic example write the dac  <a href="group__pcf8591__example__driver.html#gaa77694966f650bcd5140ed2ff2409001">More...</a><br /></td></tr>
 <tr class="separator:gaa77694966f650bcd5140ed2ff2409001"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga104ac87d4afd92b148bf0a4a58c8d5c4"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__pcf8591__example__driver.html#ga104ac87d4afd92b148bf0a4a58c8d5c4">pcf8591_increment_init</a> (<a class="el" href="group__pcf8591__base__driver.html#ga6ecf0ee5409db54877b5ae5079fe5d0a">pcf8591_address_t</a> addr, <a class="el" href="group__pcf8591__base__driver.html#ga30869c3c609f40e90dad644a6af5220a">pcf8591_mode_t</a> mode)</td></tr>
 <tr class="memdesc:ga104ac87d4afd92b148bf0a4a58c8d5c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">increment example init  <a href="group__pcf8591__example__driver.html#ga104ac87d4afd92b148bf0a4a58c8d5c4">More...</a><br /></td></tr>
@@ -130,9 +130,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ga256ce26b3f9203c33c0b0ce435c4efc0"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__pcf8591__example__driver.html#ga256ce26b3f9203c33c0b0ce435c4efc0">pcf8591_increment_read</a> (int16_t *raw, float *adc, uint8_t *len)</td></tr>
 <tr class="memdesc:ga256ce26b3f9203c33c0b0ce435c4efc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">increment example read the adc  <a href="group__pcf8591__example__driver.html#ga256ce26b3f9203c33c0b0ce435c4efc0">More...</a><br /></td></tr>
 <tr class="separator:ga256ce26b3f9203c33c0b0ce435c4efc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gace9d7900f0ccc7f44334f63e3e102931"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__pcf8591__example__driver.html#gace9d7900f0ccc7f44334f63e3e102931">pcf8591_increment_write</a> (float adc)</td></tr>
-<tr class="memdesc:gace9d7900f0ccc7f44334f63e3e102931"><td class="mdescLeft">&#160;</td><td class="mdescRight">increment example write the adc  <a href="group__pcf8591__example__driver.html#gace9d7900f0ccc7f44334f63e3e102931">More...</a><br /></td></tr>
-<tr class="separator:gace9d7900f0ccc7f44334f63e3e102931"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga44fed10e2dd370f7b315aa8195b6fada"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__pcf8591__example__driver.html#ga44fed10e2dd370f7b315aa8195b6fada">pcf8591_increment_write</a> (float dac)</td></tr>
+<tr class="memdesc:ga44fed10e2dd370f7b315aa8195b6fada"><td class="mdescLeft">&#160;</td><td class="mdescRight">increment example write the dac  <a href="group__pcf8591__example__driver.html#ga44fed10e2dd370f7b315aa8195b6fada">More...</a><br /></td></tr>
+<tr class="separator:ga44fed10e2dd370f7b315aa8195b6fada"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>pcf8591 example driver modules </p>
@@ -338,16 +338,16 @@ Functions</h2></td></tr>
           <td class="memname">uint8_t pcf8591_basic_write </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>adc</em></td><td>)</td>
+          <td class="paramname"><em>dac</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>basic example write the adc </p>
+<p>basic example write the dac </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">adc</td><td>is a converted adc value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dac</td><td>is a converted dac value </td></tr>
   </table>
   </dd>
 </dl>
@@ -487,8 +487,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="gace9d7900f0ccc7f44334f63e3e102931"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gace9d7900f0ccc7f44334f63e3e102931">&#9670;&nbsp;</a></span>pcf8591_increment_write()</h2>
+<a id="ga44fed10e2dd370f7b315aa8195b6fada"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga44fed10e2dd370f7b315aa8195b6fada">&#9670;&nbsp;</a></span>pcf8591_increment_write()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -497,16 +497,16 @@ Functions</h2></td></tr>
           <td class="memname">uint8_t pcf8591_increment_write </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>adc</em></td><td>)</td>
+          <td class="paramname"><em>dac</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>increment example write the adc </p>
+<p>increment example write the dac </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">adc</td><td>is a converted adc value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dac</td><td>is a converted dac value </td></tr>
   </table>
   </dd>
 </dl>

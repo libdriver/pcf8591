@@ -87,14 +87,14 @@ uint8_t pcf8591_increment_deinit(void);
 uint8_t pcf8591_increment_read(int16_t *raw, float *adc, uint8_t *len);
 
 /**
- * @brief     increment example write the adc
- * @param[in] adc is a converted adc value
+ * @brief     increment example write the dac
+ * @param[in] dac is a converted dac value
  * @return    status code
  *            - 0 success
  *            - 1 write failed
  * @note      none
  */
-uint8_t pcf8591_increment_write(float adc);
+uint8_t pcf8591_increment_write(float dac);
 
 /**
  * @}
