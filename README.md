@@ -28,15 +28,15 @@ LibDriver PCF8591 is a full function driver of PCF8591 launched by LibDriver.It 
 
 /src includes LibDriver PCF8591 source files.
 
-/interface includes LibDriver PCF8591 IIC platform independent template。
+/interface includes LibDriver PCF8591 IIC platform independent template.
 
-/test includes LibDriver PCF8591 driver test code and this code can test the chip necessary function simply。
+/test includes LibDriver PCF8591 driver test code and this code can test the chip necessary function simply.
 
 /example includes LibDriver PCF8591 sample code.
 
 /doc includes LibDriver PCF8591 offline document.
 
-/datasheet includes PCF8591 datasheet。
+/datasheet includes PCF8591 datasheet.
 
 /project includes the common Linux and MCU development board sample code. All projects use the shell script to debug the driver and the detail instruction can be found in each project's README.md.
 
@@ -51,6 +51,8 @@ Add /src, /interface and /example to your project.
 #### example basic
 
 ```C
+#include "driver_pcf8591_basic.h"
+
 uint8_t res;
 uint8_t i;
 int16_t raw;
@@ -126,6 +128,8 @@ return 0;
 #### example increment
 
 ```C
+#include "driver_pcf8591_increment.h"
+
 uint8_t res;
 int16_t raws[4];
 float adcs[4];

@@ -51,6 +51,8 @@ LibDriver PCF8591は、LibDriverによって起動されたPCF8591の全機能�
 #### example write
 
 ```C
+#include "driver_pcf8591_basic.h"
+
 uint8_t res;
 uint8_t i;
 int16_t raw;
@@ -126,6 +128,8 @@ return 0;
 #### example increment
 
 ```c
+#include "driver_pcf8591_increment.h"
+
 uint8_t res;
 int16_t raws[4];
 float adcs[4];
