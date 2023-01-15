@@ -83,7 +83,7 @@ uint8_t pcf8591_register_test(pcf8591_address_t addr)
         pcf8591_interface_debug_print("pcf8591: chip is %s.\n", info.chip_name);
         pcf8591_interface_debug_print("pcf8591: manufacturer is %s.\n", info.manufacturer_name);
         pcf8591_interface_debug_print("pcf8591: interface is %s.\n", info.interface);
-        pcf8591_interface_debug_print("pcf8591: driver version is %d.%d.\n", info.driver_version/1000, (info.driver_version%1000)/100);
+        pcf8591_interface_debug_print("pcf8591: driver version is %d.%d.\n", info.driver_version / 1000, (info.driver_version % 1000) / 100);
         pcf8591_interface_debug_print("pcf8591: min supply voltage is %0.1fV.\n", info.supply_voltage_min_v);
         pcf8591_interface_debug_print("pcf8591: max supply voltage is %0.1fV.\n", info.supply_voltage_max_v);
         pcf8591_interface_debug_print("pcf8591: max current is %0.2fmA.\n", info.max_current_ma);
