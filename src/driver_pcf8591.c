@@ -135,7 +135,7 @@ uint8_t pcf8591_set_channel(pcf8591_handle_t *handle, pcf8591_channel_t channel)
 /**
  * @brief      get the adc channel
  * @param[in]  *handle points to a pcf8591 handle structure
- * @param[out] *channel points to a adc channel buffer
+ * @param[out] *channel points to an adc channel buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -201,7 +201,7 @@ uint8_t pcf8591_set_mode(pcf8591_handle_t *handle, pcf8591_mode_t mode)
 /**
  * @brief      get the adc mode
  * @param[in]  *handle points to a pcf8591 handle structure
- * @param[out] *mode points to a adc mode buffer
+ * @param[out] *mode points to an adc mode buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -327,7 +327,7 @@ uint8_t pcf8591_set_reference_voltage(pcf8591_handle_t *handle, float ref_voltag
 /**
  * @brief      get the adc reference voltage
  * @param[in]  *handle points to a pcf8591 handle structure
- * @param[out] *ref_voltage points to a adc reference voltage buffer
+ * @param[out] *ref_voltage points to an adc reference voltage buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -725,7 +725,7 @@ uint8_t pcf8591_read(pcf8591_handle_t *handle, int16_t *raw, float *adc)
  * @param[in]     *handle points to a pcf8591 handle structure
  * @param[out]    *raw points to a raw adc buffer
  * @param[out]    *adc points to a converted adc buffer
- * @param[in,out] *len points to a adc length buffer
+ * @param[in,out] *len points to an adc length buffer
  * @return        status code
  *                - 0 success
  *                - 1 read failed
