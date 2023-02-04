@@ -70,7 +70,7 @@ uint8_t pcf8591(uint8_t argc, char **argv)
         {"times", required_argument, NULL, 5},
         {NULL, 0, NULL, 0},
     };
-    char type[33] = "unknow";
+    char type[33] = "unknown";
     uint32_t times = 3;
     pcf8591_address_t addr = PCF8591_ADDRESS_A000;
     pcf8591_channel_t channel = PCF8591_CHANNEL_0;
@@ -604,7 +604,7 @@ int main(uint8_t argc, char **argv)
     }
     else
     {
-        pcf8591_interface_debug_print("pcf8591: unknow status code.\n");
+        pcf8591_interface_debug_print("pcf8591: unknown status code.\n");
     }
 
     return 0;

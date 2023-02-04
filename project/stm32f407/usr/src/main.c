@@ -80,7 +80,7 @@ uint8_t pcf8591(uint8_t argc, char **argv)
         {"times", required_argument, NULL, 5},
         {NULL, 0, NULL, 0},
     };
-    char type[33] = "unknow";
+    char type[33] = "unknown";
     uint32_t times = 3;
     pcf8591_address_t addr = PCF8591_ADDRESS_A000;
     pcf8591_channel_t channel = PCF8591_CHANNEL_0;
@@ -604,7 +604,7 @@ int main(void)
     /* uart init */
     uart_init(115200);
     
-    /* shell init && register pcf8591 fuction */
+    /* shell init && register pcf8591 function */
     shell_init();
     shell_register("pcf8591", pcf8591);
     uart_print("pcf8591: welcome to libdriver pcf8591.\n");
@@ -627,7 +627,7 @@ int main(void)
             }
             else if (res == 2)
             {
-                uart_print("pcf8591: unknow command.\n");
+                uart_print("pcf8591: unknown command.\n");
             }
             else if (res == 3)
             {
@@ -643,7 +643,7 @@ int main(void)
             }
             else
             {
-                uart_print("pcf8591: unknow status code.\n");
+                uart_print("pcf8591: unknown status code.\n");
             }
             uart_flush();
         }

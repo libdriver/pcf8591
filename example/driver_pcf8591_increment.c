@@ -174,7 +174,7 @@ uint8_t pcf8591_increment_write(float dac)
         return 1;
     }
     
-    /* wrire dac */
+    /* write dac */
     if (pcf8591_write(&gs_handle, data) != 0)
     {
         return 1;
