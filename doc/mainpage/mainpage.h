@@ -1,6 +1,6 @@
 /**
  * @mainpage  LibDriver PCF8591
- * @brief     libdriver pcf8591 is a full function driver of pcf8591 and it can run in both MCU and Linux platform.
+ * @brief     LibDriver PCF8591 is a full function driver of PCF8591 and it can run in both MCU and Linux platform.
  * @version   2.0.0
  * @author    Shifeng Li
  *
