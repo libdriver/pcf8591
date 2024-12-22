@@ -393,9 +393,9 @@ Functions</h2></td></tr>
 <p>convert a dac value to a register raw data </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a pcf8591 handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">dac</td><td>is a converted dac value </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*reg</td><td>points to a register raw buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a pcf8591 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dac</td><td>converted dac value </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*reg</td><td>pointer to a register raw buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -430,7 +430,7 @@ Functions</h2></td></tr>
 <p>close the chip </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a pcf8591 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a pcf8591 handle structure </td></tr>
   </table>
   </dd>
 </dl>
@@ -476,8 +476,8 @@ Functions</h2></td></tr>
 <p>get the address pin </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a pcf8591 handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*addr_pin</td><td>points to a chip address pins buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a pcf8591 handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*addr_pin</td><td>pointer to a chip address pins buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -521,8 +521,8 @@ Functions</h2></td></tr>
 <p>get the adc auto increment read mode </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a pcf8591 handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*enable</td><td>points to a bool value buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a pcf8591 handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*enable</td><td>pointer to a bool value buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -567,8 +567,8 @@ Functions</h2></td></tr>
 <p>get the adc channel </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a pcf8591 handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*channel</td><td>points to an adc channel buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a pcf8591 handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*channel</td><td>pointer to an adc channel buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -613,8 +613,8 @@ Functions</h2></td></tr>
 <p>get the adc mode </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a pcf8591 handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*mode</td><td>points to an adc mode buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a pcf8591 handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*mode</td><td>pointer to an adc mode buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -659,8 +659,8 @@ Functions</h2></td></tr>
 <p>get the adc reference voltage </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a pcf8591 handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*ref_voltage</td><td>points to an adc reference voltage buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a pcf8591 handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*ref_voltage</td><td>pointer to an adc reference voltage buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -695,7 +695,7 @@ Functions</h2></td></tr>
 <p>get chip's information </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">*info</td><td>points to a pcf8591 info structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*info</td><td>pointer to a pcf8591 info structure </td></tr>
   </table>
   </dd>
 </dl>
@@ -729,7 +729,7 @@ Functions</h2></td></tr>
 <p>initialize the chip </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a pcf8591 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a pcf8591 handle structure </td></tr>
   </table>
   </dd>
 </dl>
@@ -787,10 +787,10 @@ Functions</h2></td></tr>
 <p>read the multiple channel data from the chip </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a pcf8591 handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*raw</td><td>points to a raw adc buffer </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*adc</td><td>points to a converted adc buffer </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">*len</td><td>points to an adc length buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a pcf8591 handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*raw</td><td>pointer to a raw adc buffer </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*adc</td><td>pointer to a converted adc buffer </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">*len</td><td>pointer to an adc length buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -842,9 +842,9 @@ Functions</h2></td></tr>
 <p>read data from the chip </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a pcf8591 handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*raw</td><td>points to a raw adc buffer </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*adc</td><td>points to a converted adc buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a pcf8591 handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*raw</td><td>pointer to a raw adc buffer </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*adc</td><td>pointer to a converted adc buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -890,8 +890,8 @@ Functions</h2></td></tr>
 <p>set the address pin </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a pcf8591 handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">addr_pin</td><td>is the chip address pins </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a pcf8591 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">addr_pin</td><td>chip address pins </td></tr>
   </table>
   </dd>
 </dl>
@@ -935,8 +935,8 @@ Functions</h2></td></tr>
 <p>set the adc auto increment read mode </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a pcf8591 handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">enable</td><td>is a bool value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a pcf8591 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">enable</td><td>bool value </td></tr>
   </table>
   </dd>
 </dl>
@@ -982,8 +982,8 @@ Functions</h2></td></tr>
 <p>set the adc channel </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a pcf8591 handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">channel</td><td>is the adc channel </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a pcf8591 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">channel</td><td>adc channel </td></tr>
   </table>
   </dd>
 </dl>
@@ -1029,8 +1029,8 @@ Functions</h2></td></tr>
 <p>set the adc mode </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a pcf8591 handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>is the adc mode </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a pcf8591 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>adc mode </td></tr>
   </table>
   </dd>
 </dl>
@@ -1076,8 +1076,8 @@ Functions</h2></td></tr>
 <p>set the adc reference voltage </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a pcf8591 handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">ref_voltage</td><td>is the adc reference voltage </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a pcf8591 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ref_voltage</td><td>adc reference voltage </td></tr>
   </table>
   </dd>
 </dl>
@@ -1122,8 +1122,8 @@ Functions</h2></td></tr>
 <p>write to the dac </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a pcf8591 handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>is the dac value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a pcf8591 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>dac value </td></tr>
   </table>
   </dd>
 </dl>

@@ -149,56 +149,56 @@ typedef struct pcf8591_info_s
 
 /**
  * @brief     initialize pcf8591_handle_t structure
- * @param[in] HANDLE points to a pcf8591 handle structure
- * @param[in] STRUCTURE is pcf8591_handle_t
+ * @param[in] HANDLE pointer to a pcf8591 handle structure
+ * @param[in] STRUCTURE pcf8591_handle_t
  * @note      none
  */
 #define DRIVER_PCF8591_LINK_INIT(HANDLE, STRUCTURE)           memset(HANDLE, 0, sizeof(STRUCTURE))
 
 /**
  * @brief     link iic_init function
- * @param[in] HANDLE points to a pcf8591 handle structure
- * @param[in] FUC points to an iic_init function address
+ * @param[in] HANDLE pointer to a pcf8591 handle structure
+ * @param[in] FUC pointer to an iic_init function address
  * @note      none
  */
 #define DRIVER_PCF8591_LINK_IIC_INIT(HANDLE, FUC)            (HANDLE)->iic_init = FUC
 
 /**
  * @brief     link iic_deinit function
- * @param[in] HANDLE points to a pcf8591 handle structure
- * @param[in] FUC points to an iic_deinit function address
+ * @param[in] HANDLE pointer to a pcf8591 handle structure
+ * @param[in] FUC pointer to an iic_deinit function address
  * @note      none
  */
 #define DRIVER_PCF8591_LINK_IIC_DEINIT(HANDLE, FUC)          (HANDLE)->iic_deinit = FUC
 
 /**
  * @brief     link iic_read_cmd function
- * @param[in] HANDLE points to a pcf8591 handle structure
- * @param[in] FUC points to an iic_read_cmd function address
+ * @param[in] HANDLE pointer to a pcf8591 handle structure
+ * @param[in] FUC pointer to an iic_read_cmd function address
  * @note      none
  */
 #define DRIVER_PCF8591_LINK_IIC_READ_COMMAND(HANDLE, FUC)    (HANDLE)->iic_read_cmd = FUC
 
 /**
  * @brief     link iic_write_cmd function
- * @param[in] HANDLE points to a pcf8591 handle structure
- * @param[in] FUC points to an iic_write_cmd function address
+ * @param[in] HANDLE pointer to a pcf8591 handle structure
+ * @param[in] FUC pointer to an iic_write_cmd function address
  * @note      none
  */
 #define DRIVER_PCF8591_LINK_IIC_WRITE_COMMAND(HANDLE, FUC)   (HANDLE)->iic_write_cmd = FUC
 
 /**
  * @brief     link delay_ms function
- * @param[in] HANDLE points to a pcf8591 handle structure
- * @param[in] FUC points to a delay_ms function address
+ * @param[in] HANDLE pointer to a pcf8591 handle structure
+ * @param[in] FUC pointer to a delay_ms function address
  * @note      none
  */
 #define DRIVER_PCF8591_LINK_DELAY_MS(HANDLE, FUC)            (HANDLE)->delay_ms = FUC
 
 /**
  * @brief     link debug_print function
- * @param[in] HANDLE points to a pcf8591 handle structure
- * @param[in] FUC points to a debug_print function address
+ * @param[in] HANDLE pointer to a pcf8591 handle structure
+ * @param[in] FUC pointer to a debug_print function address
  * @note      none
  */
 #define DRIVER_PCF8591_LINK_DEBUG_PRINT(HANDLE, FUC)         (HANDLE)->debug_print = FUC
@@ -216,7 +216,7 @@ typedef struct pcf8591_info_s
 
 /**
  * @brief      get chip's information
- * @param[out] *info points to a pcf8591 info structure
+ * @param[out] *info pointer to a pcf8591 info structure
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -226,8 +226,8 @@ uint8_t pcf8591_info(pcf8591_info_t *info);
 
 /**
  * @brief     set the address pin
- * @param[in] *handle points to a pcf8591 handle structure
- * @param[in] addr_pin is the chip address pins
+ * @param[in] *handle pointer to a pcf8591 handle structure
+ * @param[in] addr_pin chip address pins
  * @return    status code
  *            - 0 success
  *            - 2 handle is NULL
@@ -237,8 +237,8 @@ uint8_t pcf8591_set_addr_pin(pcf8591_handle_t *handle, pcf8591_address_t addr_pi
 
 /**
  * @brief      get the address pin
- * @param[in]  *handle points to a pcf8591 handle structure
- * @param[out] *addr_pin points to a chip address pins buffer
+ * @param[in]  *handle pointer to a pcf8591 handle structure
+ * @param[out] *addr_pin pointer to a chip address pins buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -248,7 +248,7 @@ uint8_t pcf8591_get_addr_pin(pcf8591_handle_t *handle, pcf8591_address_t *addr_p
 
 /**
  * @brief     initialize the chip
- * @param[in] *handle points to a pcf8591 handle structure
+ * @param[in] *handle pointer to a pcf8591 handle structure
  * @return    status code
  *            - 0 success
  *            - 1 iic initialization failed
@@ -260,7 +260,7 @@ uint8_t pcf8591_init(pcf8591_handle_t *handle);
 
 /**
  * @brief     close the chip
- * @param[in] *handle points to a pcf8591 handle structure
+ * @param[in] *handle pointer to a pcf8591 handle structure
  * @return    status code
  *            - 0 success
  *            - 1 iic deinit failed
@@ -272,9 +272,9 @@ uint8_t pcf8591_deinit(pcf8591_handle_t *handle);
 
 /**
  * @brief      read data from the chip
- * @param[in]  *handle points to a pcf8591 handle structure
- * @param[out] *raw points to a raw adc buffer
- * @param[out] *adc points to a converted adc buffer
+ * @param[in]  *handle pointer to a pcf8591 handle structure
+ * @param[out] *raw pointer to a raw adc buffer
+ * @param[out] *adc pointer to a converted adc buffer
  * @return     status code
  *             - 0 success
  *             - 1 read failed
@@ -286,10 +286,10 @@ uint8_t pcf8591_read(pcf8591_handle_t *handle, int16_t *raw, float *adc);
 
 /**
  * @brief         read the multiple channel data from the chip
- * @param[in]     *handle points to a pcf8591 handle structure
- * @param[out]    *raw points to a raw adc buffer
- * @param[out]    *adc points to a converted adc buffer
- * @param[in,out] *len points to an adc length buffer
+ * @param[in]     *handle pointer to a pcf8591 handle structure
+ * @param[out]    *raw pointer to a raw adc buffer
+ * @param[out]    *adc pointer to a converted adc buffer
+ * @param[in,out] *len pointer to an adc length buffer
  * @return        status code
  *                - 0 success
  *                - 1 read failed
@@ -301,8 +301,8 @@ uint8_t pcf8591_multiple_read(pcf8591_handle_t *handle, int16_t *raw, float *adc
 
 /**
  * @brief     write to the dac
- * @param[in] *handle points to a pcf8591 handle structure
- * @param[in] data is the dac value
+ * @param[in] *handle pointer to a pcf8591 handle structure
+ * @param[in] data dac value
  * @return    status code
  *            - 0 success
  *            - 1 write dac value failed
@@ -314,9 +314,9 @@ uint8_t pcf8591_write(pcf8591_handle_t *handle, uint8_t data);
 
 /**
  * @brief      convert a dac value to a register raw data
- * @param[in]  *handle points to a pcf8591 handle structure
- * @param[in]  dac is a converted dac value
- * @param[out] *reg points to a register raw buffer
+ * @param[in]  *handle pointer to a pcf8591 handle structure
+ * @param[in]  dac converted dac value
+ * @param[out] *reg pointer to a register raw buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -327,8 +327,8 @@ uint8_t pcf8591_dac_convert_to_register(pcf8591_handle_t *handle, float dac, uin
 
 /**
  * @brief     set the adc reference voltage
- * @param[in] *handle points to a pcf8591 handle structure
- * @param[in] ref_voltage is the adc reference voltage
+ * @param[in] *handle pointer to a pcf8591 handle structure
+ * @param[in] ref_voltage adc reference voltage
  * @return    status code
  *            - 0 success
  *            - 2 handle is NULL
@@ -339,8 +339,8 @@ uint8_t pcf8591_set_reference_voltage(pcf8591_handle_t *handle, float ref_voltag
 
 /**
  * @brief      get the adc reference voltage
- * @param[in]  *handle points to a pcf8591 handle structure
- * @param[out] *ref_voltage points to an adc reference voltage buffer
+ * @param[in]  *handle pointer to a pcf8591 handle structure
+ * @param[out] *ref_voltage pointer to an adc reference voltage buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -351,8 +351,8 @@ uint8_t pcf8591_get_reference_voltage(pcf8591_handle_t *handle, float *ref_volta
 
 /**
  * @brief     set the adc channel
- * @param[in] *handle points to a pcf8591 handle structure
- * @param[in] channel is the adc channel
+ * @param[in] *handle pointer to a pcf8591 handle structure
+ * @param[in] channel adc channel
  * @return    status code
  *            - 0 success
  *            - 1 set channel failed
@@ -364,8 +364,8 @@ uint8_t pcf8591_set_channel(pcf8591_handle_t *handle, pcf8591_channel_t channel)
 
 /**
  * @brief      get the adc channel
- * @param[in]  *handle points to a pcf8591 handle structure
- * @param[out] *channel points to an adc channel buffer
+ * @param[in]  *handle pointer to a pcf8591 handle structure
+ * @param[out] *channel pointer to an adc channel buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -376,8 +376,8 @@ uint8_t pcf8591_get_channel(pcf8591_handle_t *handle, pcf8591_channel_t *channel
 
 /**
  * @brief     set the adc mode
- * @param[in] *handle points to a pcf8591 handle structure
- * @param[in] mode is the adc mode
+ * @param[in] *handle pointer to a pcf8591 handle structure
+ * @param[in] mode adc mode
  * @return    status code
  *            - 0 success
  *            - 1 set mode failed
@@ -389,8 +389,8 @@ uint8_t pcf8591_set_mode(pcf8591_handle_t *handle, pcf8591_mode_t mode);
 
 /**
  * @brief      get the adc mode
- * @param[in]  *handle points to a pcf8591 handle structure
- * @param[out] *mode points to an adc mode buffer
+ * @param[in]  *handle pointer to a pcf8591 handle structure
+ * @param[out] *mode pointer to an adc mode buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -401,8 +401,8 @@ uint8_t pcf8591_get_mode(pcf8591_handle_t *handle, pcf8591_mode_t *mode);
 
 /**
  * @brief     set the adc auto increment read mode
- * @param[in] *handle points to a pcf8591 handle structure
- * @param[in] enable is a bool value
+ * @param[in] *handle pointer to a pcf8591 handle structure
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 1 set auto increment failed
@@ -414,8 +414,8 @@ uint8_t pcf8591_set_auto_increment(pcf8591_handle_t *handle, pcf8591_bool_t enab
 
 /**
  * @brief      get the adc auto increment read mode
- * @param[in]  *handle points to a pcf8591 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to a pcf8591 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -437,9 +437,9 @@ uint8_t pcf8591_get_auto_increment(pcf8591_handle_t *handle, pcf8591_bool_t *ena
 
 /**
  * @brief     set the chip register
- * @param[in] *handle points to a pcf8591 handle structure
- * @param[in] *buf points to a data buffer.
- * @param[in] len is the data buffer
+ * @param[in] *handle pointer to a pcf8591 handle structure
+ * @param[in] *buf pointer to a data buffer.
+ * @param[in] len data buffer length
  * @return    status code
  *            - 0 success
  *            - 1 write failed
@@ -451,9 +451,9 @@ uint8_t pcf8591_set_reg(pcf8591_handle_t *handle, uint8_t *buf, uint16_t len);
 
 /**
  * @brief      get the chip register
- * @param[in]  *handle points to a pcf8591 handle structure
- * @param[out] *buf points to a data buffer.
- * @param[in]  len is the data buffer
+ * @param[in]  *handle pointer to a pcf8591 handle structure
+ * @param[out] *buf pointer to a data buffer.
+ * @param[in]  len data buffer length
  * @return     status code
  *             - 0 success
  *             - 1 read failed
