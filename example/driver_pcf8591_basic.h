@@ -58,8 +58,8 @@ extern "C"{
 
 /**
  * @brief     basic example init
- * @param[in] addr is the iic device address
- * @param[in] mode is the adc mode
+ * @param[in] addr iic device address
+ * @param[in] mode adc mode
  * @return    status code
  *            - 0 success
  *            - 1 init failed
@@ -78,7 +78,7 @@ uint8_t pcf8591_basic_deinit(void);
 
 /**
  * @brief     basic example set the channel
- * @param[in] channel is the adc channel
+ * @param[in] channel adc channel
  * @return    status code
  *            - 0 success
  *            - 1 set channel failed
@@ -88,8 +88,8 @@ uint8_t pcf8591_basic_set_channel(pcf8591_channel_t channel);
 
 /**
  * @brief      basic example read the adc
- * @param[out] *raw points to a raw adc buffer
- * @param[out] *adc points to a converted adc buffer
+ * @param[out] *raw pointer to a raw adc buffer
+ * @param[out] *adc pointer to a converted adc buffer
  * @return     status code
  *             - 0 success
  *             - 1 read failed
@@ -99,7 +99,7 @@ uint8_t pcf8591_basic_read(int16_t *raw, float *adc);
 
 /**
  * @brief     basic example write the dac
- * @param[in] dac is a converted dac value
+ * @param[in] dac converted dac value
  * @return    status code
  *            - 0 success
  *            - 1 write failed

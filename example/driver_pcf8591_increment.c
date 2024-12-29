@@ -41,8 +41,8 @@ static pcf8591_handle_t gs_handle;        /**< pcf8591 handle */
 
 /**
  * @brief     increment example init
- * @param[in] addr is the iic device address
- * @param[in] mode is the adc mode
+ * @param[in] addr iic device address
+ * @param[in] mode adc mode
  * @return    status code
  *            - 0 success
  *            - 1 init failed
@@ -134,9 +134,9 @@ uint8_t pcf8591_increment_deinit(void)
 
 /**
  * @brief         increment example read the adc
- * @param[out]    *raw points to a raw adc buffer
- * @param[out]    *adc points to a converted adc buffer
- * @param[in,out] *len points to a input buffer length address
+ * @param[out]    *raw pointer to a raw adc buffer
+ * @param[out]    *adc pointer to a converted adc buffer
+ * @param[in,out] *len pointer to a input buffer length address
  * @return        status code
  *                - 0 success
  *                - 1 read failed
@@ -156,7 +156,7 @@ uint8_t pcf8591_increment_read(int16_t *raw, float *adc, uint8_t *len)
 
 /**
  * @brief     increment example write the dac
- * @param[in] dac is a converted dac value
+ * @param[in] dac converted dac value
  * @return    status code
  *            - 0 success
  *            - 1 write failed
