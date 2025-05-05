@@ -105,7 +105,7 @@ uint8_t pcf8591_basic_read(int16_t *raw, float *adc);
  *            - 1 write failed
  * @note      none
  */
-uint8_t pcf8591_basic_write(float adc);
+uint8_t pcf8591_basic_write(float dac);
 
 /**
  * @}

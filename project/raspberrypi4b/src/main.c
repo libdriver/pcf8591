@@ -402,9 +402,6 @@ uint8_t pcf8591(uint8_t argc, char **argv)
         /* output */
         pcf8591_interface_debug_print("pcf8591: write %0.3f.\n", dac);
         
-        /* basic deinit */
-        (void)pcf8591_basic_deinit();
-        
         return 0;
     }
     else if (strcmp("e_increment-input", type) == 0)
@@ -501,9 +498,6 @@ uint8_t pcf8591(uint8_t argc, char **argv)
         
         /* output */
         pcf8591_interface_debug_print("pcf8591: write %0.3f.\n", dac);
-        
-        /* increment deinit */
-        (void)pcf8591_increment_deinit();
         
         return 0;
     }

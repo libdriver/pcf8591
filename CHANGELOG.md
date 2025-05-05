@@ -1,3 +1,9 @@
+## 2.0.6 (2025-05-05)
+
+## Bug Fixes
+
+- fix dac shell bugs
+
 ## 2.0.5 (2025-04-16)
 
 ## Bug Fixes
