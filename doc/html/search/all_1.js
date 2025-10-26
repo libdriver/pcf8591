@@ -1,26 +1,6 @@
 var searchData=
 [
-  ['debug_5fprint_3',['debug_print',['../structpcf8591__handle__s.html#a769d5b3a6c14790a0e126e8fe70b384b',1,'pcf8591_handle_s']]],
-  ['delay_5fms_4',['delay_ms',['../structpcf8591__handle__s.html#a406c9433252b7366de417b7a60915c81',1,'pcf8591_handle_s']]],
-  ['driver_5fpcf8591_2ec_5',['driver_pcf8591.c',['../driver__pcf8591_8c.html',1,'']]],
-  ['driver_5fpcf8591_2eh_6',['driver_pcf8591.h',['../driver__pcf8591_8h.html',1,'']]],
-  ['driver_5fpcf8591_5fbasic_2ec_7',['driver_pcf8591_basic.c',['../driver__pcf8591__basic_8c.html',1,'']]],
-  ['driver_5fpcf8591_5fbasic_2eh_8',['driver_pcf8591_basic.h',['../driver__pcf8591__basic_8h.html',1,'']]],
-  ['driver_5fpcf8591_5fincrement_2ec_9',['driver_pcf8591_increment.c',['../driver__pcf8591__increment_8c.html',1,'']]],
-  ['driver_5fpcf8591_5fincrement_2eh_10',['driver_pcf8591_increment.h',['../driver__pcf8591__increment_8h.html',1,'']]],
-  ['driver_5fpcf8591_5finterface_2eh_11',['driver_pcf8591_interface.h',['../driver__pcf8591__interface_8h.html',1,'']]],
-  ['driver_5fpcf8591_5finterface_5ftemplate_2ec_12',['driver_pcf8591_interface_template.c',['../driver__pcf8591__interface__template_8c.html',1,'']]],
-  ['driver_5fpcf8591_5flink_5fdebug_5fprint_13',['DRIVER_PCF8591_LINK_DEBUG_PRINT',['../group__pcf8591__link__driver.html#ga7801336bb89c2912b70b9b23f2383ca5',1,'driver_pcf8591.h']]],
-  ['driver_5fpcf8591_5flink_5fdelay_5fms_14',['DRIVER_PCF8591_LINK_DELAY_MS',['../group__pcf8591__link__driver.html#ga86cc94d66a4a8af8fddcd01f058a4300',1,'driver_pcf8591.h']]],
-  ['driver_5fpcf8591_5flink_5fiic_5fdeinit_15',['DRIVER_PCF8591_LINK_IIC_DEINIT',['../group__pcf8591__link__driver.html#gaf03190903a1c3a83ba9c2c8f9f01a142',1,'driver_pcf8591.h']]],
-  ['driver_5fpcf8591_5flink_5fiic_5finit_16',['DRIVER_PCF8591_LINK_IIC_INIT',['../group__pcf8591__link__driver.html#ga3383ca107e565e90614de278e29fb6d1',1,'driver_pcf8591.h']]],
-  ['driver_5fpcf8591_5flink_5fiic_5fread_5fcommand_17',['DRIVER_PCF8591_LINK_IIC_READ_COMMAND',['../group__pcf8591__link__driver.html#ga0f616e297af3cdc3598453478d97dfac',1,'driver_pcf8591.h']]],
-  ['driver_5fpcf8591_5flink_5fiic_5fwrite_5fcommand_18',['DRIVER_PCF8591_LINK_IIC_WRITE_COMMAND',['../group__pcf8591__link__driver.html#ga8b61a58da1ed7860a926e1a315b7d029',1,'driver_pcf8591.h']]],
-  ['driver_5fpcf8591_5flink_5finit_19',['DRIVER_PCF8591_LINK_INIT',['../group__pcf8591__link__driver.html#ga155469ab28663dd4b32cfe2765c3b735',1,'driver_pcf8591.h']]],
-  ['driver_5fpcf8591_5fread_5fwrite_5ftest_2ec_20',['driver_pcf8591_read_write_test.c',['../driver__pcf8591__read__write__test_8c.html',1,'']]],
-  ['driver_5fpcf8591_5fread_5fwrite_5ftest_2eh_21',['driver_pcf8591_read_write_test.h',['../driver__pcf8591__read__write__test_8h.html',1,'']]],
-  ['driver_5fpcf8591_5fregister_5ftest_2ec_22',['driver_pcf8591_register_test.c',['../driver__pcf8591__register__test_8c.html',1,'']]],
-  ['driver_5fpcf8591_5fregister_5ftest_2eh_23',['driver_pcf8591_register_test.h',['../driver__pcf8591__register__test_8h.html',1,'']]],
-  ['driver_5fversion_24',['driver_version',['../structpcf8591__info__s.html#a41b0bd442708b70d252c50b92c75265a',1,'pcf8591_info_s']]],
-  ['driver_5fversion_25',['DRIVER_VERSION',['../driver__pcf8591_8c.html#ae578001fe043b4cca7a0edd801cfe9c4',1,'driver_pcf8591.c']]]
+  ['chip_5fname_0',['CHIP_NAME',['../driver__pcf8591_8c.html#adc9da0a24824ca1239b593f6459b3954',1,'driver_pcf8591.c']]],
+  ['chip_5fname_1',['chip_name',['../structpcf8591__info__s.html#af890958c72bd715cc6454a10dc846ae6',1,'pcf8591_info_s']]],
+  ['conf_2',['conf',['../structpcf8591__handle__s.html#a9c739e0452424f390ff2dd5323456f12',1,'pcf8591_handle_s']]]
 ];
