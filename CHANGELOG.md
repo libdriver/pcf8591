@@ -1,3 +1,9 @@
+## 2.0.9 (2025-12-16)
+
+## Bug Fixes
+
+- fix adc convert bug
+
 ## 2.0.8 (2025-12-15)
 
 ## Bug Fixes
