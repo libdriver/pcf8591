@@ -413,8 +413,8 @@ uint8_t pcf8591_register_test(pcf8591_address_t addr)
     }
     pcf8591_interface_debug_print("pcf8591: check mode %s.\n", (PCF8591_MODE_AIN0_GND_AND_AIN1_GND_AND_AIN2_AIN3==mode)?"ok":"error");
     
-    /* set mode AIN0_AIN1_AND_ANI2_AIN3 */
-    res = pcf8591_set_mode(&gs_handle, PCF8591_MODE_AIN0_AIN1_AND_ANI2_AIN3);
+    /* set mode AIN0_AIN1_AND_AIN2_AIN3 */
+    res = pcf8591_set_mode(&gs_handle, PCF8591_MODE_AIN0_AIN1_AND_AIN2_AIN3);
     if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: set mode failed.\n");
@@ -431,7 +431,7 @@ uint8_t pcf8591_register_test(pcf8591_address_t addr)
        
         return 1;
     }
-    pcf8591_interface_debug_print("pcf8591: check mode %s.\n", (PCF8591_MODE_AIN0_AIN1_AND_ANI2_AIN3==mode)?"ok":"error");
+    pcf8591_interface_debug_print("pcf8591: check mode %s.\n", (PCF8591_MODE_AIN0_AIN1_AND_AIN2_AIN3==mode)?"ok":"error");
     
     /* pcf8591_set_auto_increment/pcf8591_get_auto_increment test */
     pcf8591_interface_debug_print("pcf8591: pcf8591_set_auto_increment/pcf8591_get_auto_increment test.\n");

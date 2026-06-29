@@ -33,7 +33,7 @@ var driver__pcf8591_8h =
       [ "PCF8591_MODE_AIN0123_GND", "group__pcf8591__base__driver.html#gga30869c3c609f40e90dad644a6af5220aae299d93575c246003895828762db249a", null ],
       [ "PCF8591_MODE_AIN012_AIN3", "group__pcf8591__base__driver.html#gga30869c3c609f40e90dad644a6af5220aab1ff3d1d969bc9caf2e98158eb9b61db", null ],
       [ "PCF8591_MODE_AIN0_GND_AND_AIN1_GND_AND_AIN2_AIN3", "group__pcf8591__base__driver.html#gga30869c3c609f40e90dad644a6af5220aafbcb2aef0543c0d8a3873635d06c102e", null ],
-      [ "PCF8591_MODE_AIN0_AIN1_AND_ANI2_AIN3", "group__pcf8591__base__driver.html#gga30869c3c609f40e90dad644a6af5220aa8de804a3d05c839ef84a79789648569a", null ]
+      [ "PCF8591_MODE_AIN0_AIN1_AND_AIN2_AIN3", "group__pcf8591__base__driver.html#gga30869c3c609f40e90dad644a6af5220aaa970882faa5147e16516e78ee8f7afdf", null ]
     ] ],
     [ "pcf8591_dac_convert_to_register", "group__pcf8591__base__driver.html#ga020ba9f4bcaf91a966fa79502aec4cac", null ],
     [ "pcf8591_deinit", "group__pcf8591__base__driver.html#gac8910d5e29cfdaf4aba0f9f205ba397f", null ],

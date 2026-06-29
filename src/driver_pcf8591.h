@@ -100,7 +100,7 @@ typedef enum
     PCF8591_MODE_AIN0123_GND                         = 0x00,        /**< AIN0-GND AIN1-GND AIN2-GND AIN3-GND */
     PCF8591_MODE_AIN012_AIN3                         = 0x01,        /**< AIN0-AIN3 AIN1-AIN3 AIN2-AIN3 */
     PCF8591_MODE_AIN0_GND_AND_AIN1_GND_AND_AIN2_AIN3 = 0x02,        /**< AIN0-GND AIN1-GND AIN2-AIN3 */
-    PCF8591_MODE_AIN0_AIN1_AND_ANI2_AIN3             = 0x03,        /**< AIN0-AIN1 AIN2-AIN3 */
+    PCF8591_MODE_AIN0_AIN1_AND_AIN2_AIN3             = 0x03,        /**< AIN0-AIN1 AIN2-AIN3 */
 } pcf8591_mode_t;
 
 /**

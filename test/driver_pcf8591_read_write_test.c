@@ -232,9 +232,9 @@ uint8_t pcf8591_read_write_test(pcf8591_address_t addr, uint32_t times)
         pcf8591_interface_delay_ms(1000);
     }
 
-    /* set mode AIN0_AIN1_AND_ANI2_AIN3 */
+    /* set mode AIN0_AIN1_AND_AIN2_AIN3 */
     pcf8591_interface_debug_print("pcf8591: set mode AIN0_AIN1_AND_ANI2_AIN3.\n");
-    res = pcf8591_set_mode(&gs_handle, PCF8591_MODE_AIN0_AIN1_AND_ANI2_AIN3);
+    res = pcf8591_set_mode(&gs_handle, PCF8591_MODE_AIN0_AIN1_AND_AIN2_AIN3);
     if (res != 0)
     {
         pcf8591_interface_debug_print("pcf8591: set mode failed.\n");
