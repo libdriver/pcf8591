@@ -16,6 +16,6 @@ var searchData=
   ['pcf8591_5fchannel_5f3_13',['PCF8591_CHANNEL_3',['../group__pcf8591__base__driver.html#ggaeef4974c16b64e4b8943a3a5bd4db1d4a19ddf6b07dbd0c2070ba6967ebecc2b5',1,'driver_pcf8591.h']]],
   ['pcf8591_5fmode_5fain0123_5fgnd_14',['PCF8591_MODE_AIN0123_GND',['../group__pcf8591__base__driver.html#gga30869c3c609f40e90dad644a6af5220aae299d93575c246003895828762db249a',1,'driver_pcf8591.h']]],
   ['pcf8591_5fmode_5fain012_5fain3_15',['PCF8591_MODE_AIN012_AIN3',['../group__pcf8591__base__driver.html#gga30869c3c609f40e90dad644a6af5220aab1ff3d1d969bc9caf2e98158eb9b61db',1,'driver_pcf8591.h']]],
-  ['pcf8591_5fmode_5fain0_5fain1_5fand_5fani2_5fain3_16',['PCF8591_MODE_AIN0_AIN1_AND_ANI2_AIN3',['../group__pcf8591__base__driver.html#gga30869c3c609f40e90dad644a6af5220aa8de804a3d05c839ef84a79789648569a',1,'driver_pcf8591.h']]],
+  ['pcf8591_5fmode_5fain0_5fain1_5fand_5fain2_5fain3_16',['PCF8591_MODE_AIN0_AIN1_AND_AIN2_AIN3',['../group__pcf8591__base__driver.html#gga30869c3c609f40e90dad644a6af5220aaa970882faa5147e16516e78ee8f7afdf',1,'driver_pcf8591.h']]],
   ['pcf8591_5fmode_5fain0_5fgnd_5fand_5fain1_5fgnd_5fand_5fain2_5fain3_17',['PCF8591_MODE_AIN0_GND_AND_AIN1_GND_AND_AIN2_AIN3',['../group__pcf8591__base__driver.html#gga30869c3c609f40e90dad644a6af5220aafbcb2aef0543c0d8a3873635d06c102e',1,'driver_pcf8591.h']]]
 ];

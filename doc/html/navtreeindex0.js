@@ -73,7 +73,7 @@ var NAVTREEINDEX0 =
 "group__pcf8591__base__driver.html#gadb9bef5fb967cf6c8708c088f9815912":[0,0,1,2],
 "group__pcf8591__base__driver.html#gaeef4974c16b64e4b8943a3a5bd4db1d4":[0,0,1,6],
 "group__pcf8591__base__driver.html#gaf6ae6ea059b986cd30746492a8468a53":[0,0,1,20],
-"group__pcf8591__base__driver.html#gga30869c3c609f40e90dad644a6af5220aa8de804a3d05c839ef84a79789648569a":[0,0,1,7,3],
+"group__pcf8591__base__driver.html#gga30869c3c609f40e90dad644a6af5220aaa970882faa5147e16516e78ee8f7afdf":[0,0,1,7,3],
 "group__pcf8591__base__driver.html#gga30869c3c609f40e90dad644a6af5220aab1ff3d1d969bc9caf2e98158eb9b61db":[0,0,1,7,1],
 "group__pcf8591__base__driver.html#gga30869c3c609f40e90dad644a6af5220aae299d93575c246003895828762db249a":[0,0,1,7,0],
 "group__pcf8591__base__driver.html#gga30869c3c609f40e90dad644a6af5220aafbcb2aef0543c0d8a3873635d06c102e":[0,0,1,7,2],

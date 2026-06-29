@@ -256,7 +256,7 @@ uint8_t pcf8591_set_auto_increment(pcf8591_handle_t *handle, pcf8591_bool_t enab
     {
         handle->conf |= 0x40;                                                          /* set output bit */
     }
-    else
+    else                                                                               /* disable auto increment */
     {
         handle->conf &= ~0x40;                                                         /* clear output bit */
     }
@@ -472,7 +472,6 @@ uint8_t pcf8591_write(pcf8591_handle_t *handle, uint8_t data)
 {
     uint8_t res;
     uint8_t buf[2];
-    uint8_t conf;
     
     if (handle == NULL)                                                      /* check handle */
     {
@@ -483,8 +482,8 @@ uint8_t pcf8591_write(pcf8591_handle_t *handle, uint8_t data)
         return 3;                                                            /* return error */
     }
     
-    conf = handle->conf | 0x40;                                              /* set output */
-    buf[0] = conf;                                                           /* set conf */
+    handle->conf = handle->conf | 0x40;                                      /* set output */
+    buf[0] = handle->conf;                                                   /* set conf */
     buf[1] = data;                                                           /* set data */
     res = handle->iic_write_cmd(handle->iic_addr, (uint8_t *)buf, 2);        /* write data */
     if (res != 0)                                                            /* check error */
@@ -542,8 +541,8 @@ uint8_t pcf8591_read(pcf8591_handle_t *handle, int16_t *raw, float *adc)
     uint8_t mode;
     uint8_t channel;
     uint8_t u_data;
-    int8_t  s_data;
-    uint8_t buf[1];
+    int8_t s_data;
+    uint8_t buf[2];
     
     if (handle == NULL)                                                       /* check handle */
     {
@@ -580,7 +579,7 @@ uint8_t pcf8591_read(pcf8591_handle_t *handle, int16_t *raw, float *adc)
             return 1;                                                         /* return error */
         }
     }
-    res = handle->iic_read_cmd(handle->iic_addr, (uint8_t *)buf, 1);          /* read data */
+    res = handle->iic_read_cmd(handle->iic_addr, (uint8_t *)buf, 2);          /* read data */
     if (res != 0)                                                             /* check error */
     {
         handle->debug_print("pcf8591: read command failed.\n");               /* read failed */
@@ -593,28 +592,28 @@ uint8_t pcf8591_read(pcf8591_handle_t *handle, int16_t *raw, float *adc)
         {
             if (channel == 0)                                                 /* channel 0 */
             {
-                u_data = buf[0];                                              /* get data */
+                u_data = buf[1];                                              /* get data */
                 *raw = (int16_t)(u_data);                                     /* get raw */
                 *adc = (float)(*raw) / 256.0f * handle->ref_voltage;          /* convert to read data */
                 res = 0;                                                      /* successful */
             }
             else if (channel == 1)                                            /* channel 1 */
             {
-                u_data = buf[0];                                              /* get data */
+                u_data = buf[1];                                              /* get data */
                 *raw = (int16_t)(u_data);                                     /* get raw */
                 *adc = (float)(*raw) / 256.0f * handle->ref_voltage;          /* convert to read data */
                 res = 0;                                                      /* successful */
             }
             else if (channel == 2)                                            /* channel 2 */
             {
-                u_data = buf[0];                                              /* get data */
+                u_data = buf[1];                                              /* get data */
                 *raw = (int16_t)(u_data);                                     /* get raw */
                 *adc = (float)(*raw) / 256.0f * handle->ref_voltage;          /* convert to read data */
                 res = 0;                                                      /* successful */
             }
             else                                                              /* channel 3 */
             {
-                u_data = buf[0];                                              /* get data */
+                u_data = buf[1];                                              /* get data */
                 *raw = (int16_t)(u_data);                                     /* get raw */
                 *adc = (float)(*raw) / 256.0f * handle->ref_voltage;          /* convert to read data */
                 res = 0;                                                      /* successful */
@@ -626,21 +625,21 @@ uint8_t pcf8591_read(pcf8591_handle_t *handle, int16_t *raw, float *adc)
         {
             if (channel == 0)                                                 /* channel 0 */
             {
-                s_data = (int8_t)(buf[0]);                                    /* get data */
+                s_data = (int8_t)(buf[1]);                                    /* get data */
                 *raw = (int16_t)(s_data);                                     /* get raw */
                 *adc = (float)(*raw) / 256.0f * handle->ref_voltage;          /* convert to read data */
                 res = 0;                                                      /* successful */
             }
             else if (channel == 1)                                            /* channel 1 */
             {
-                s_data = (int8_t)(buf[0]);                                    /* get data */
+                s_data = (int8_t)(buf[1]);                                    /* get data */
                 *raw = (int16_t)(s_data);                                     /* get raw */
                 *adc = (float)(*raw) / 256.0f * handle->ref_voltage;          /* convert to read data */
                 res = 0;                                                      /* successful */
             }
             else if (channel == 2)                                            /* channel */
             {
-                s_data = (int8_t)(buf[0]);                                    /* get data */
+                s_data = (int8_t)(buf[1]);                                    /* get data */
                 *raw = (int16_t)(s_data);                                     /* get raw */
                 *adc = (float)(*raw) / 256.0f * handle->ref_voltage;          /* convert to read data */
                 res = 0;                                                      /* successful */
@@ -657,21 +656,21 @@ uint8_t pcf8591_read(pcf8591_handle_t *handle, int16_t *raw, float *adc)
         {
             if (channel == 0)                                                 /* channel 0 */
             {
-                u_data = buf[0];                                              /* get data */
+                u_data = buf[1];                                              /* get data */
                 *raw = (int16_t)(u_data);                                     /* get raw */
                 *adc = (float)(*raw) / 256.0f * handle->ref_voltage;          /* convert to read data */
                 res = 0;                                                      /* successful */
             }
             else if (channel == 1)                                            /* channel 1 */
             {
-                u_data = buf[0];                                              /* get data */
+                u_data = buf[1];                                              /* get data */
                 *raw = (int16_t)(u_data);                                     /* get raw */
                 *adc = (float)(*raw) / 256.0f * handle->ref_voltage;          /* convert to read data */
                 res = 0;                                                      /* successful */
             }
             else if (channel == 2)                                            /* channel 2 */
             {
-                s_data = (int8_t)(buf[0]);                                    /* get data  */
+                s_data = (int8_t)(buf[1]);                                    /* get data  */
                 *raw = (int16_t)(s_data);                                     /* get raw */
                 *adc = (float)(*raw) / 256.0f * handle->ref_voltage;          /* convert to read data */
                 res = 0;                                                      /* successful */
@@ -688,14 +687,14 @@ uint8_t pcf8591_read(pcf8591_handle_t *handle, int16_t *raw, float *adc)
         {
             if (channel == 0)                                                 /* channel 0 */
             {
-                s_data = (int8_t)(buf[0]);                                    /* get data */
+                s_data = (int8_t)(buf[1]);                                    /* get data */
                 *raw = (int16_t)(s_data);                                     /* get raw */
                 *adc = (float)(*raw) / 256.0f * handle->ref_voltage;          /* convert to read data */
                 res = 0;                                                      /* successful */
             }
             else if (channel == 1)                                            /* channel 1 */
             {
-                s_data = (int8_t)(buf[0]);                                    /* get data */
+                s_data = (int8_t)(buf[1]);                                    /* get data */
                 *raw = (int16_t)(s_data);                                     /* get raw */
                 *adc = (float)(*raw) / 256.0f * handle->ref_voltage;          /* convert to read data */
                 res = 0;                                                      /* successful */
@@ -737,10 +736,10 @@ uint8_t pcf8591_multiple_read(pcf8591_handle_t *handle, int16_t *raw, float *adc
 {
     uint8_t res;
     uint8_t mode;
-    uint8_t i, j;
+    uint8_t i;
     uint8_t u_data;
-    int8_t  s_data;
-    uint8_t buf[4];
+    int8_t s_data;
+    uint8_t buf[5];
     
     if (handle == NULL)                                                       /* check handle */
     {
@@ -779,17 +778,13 @@ uint8_t pcf8591_multiple_read(pcf8591_handle_t *handle, int16_t *raw, float *adc
         i = i<(*len) ? i : (*len);                                            /* get min length */
     }
     
-    memset(buf, 0, sizeof(uint8_t) * 4);                                      /* clear the buffer */
-    for (j = 0; j < i; j++)
+    memset(buf, 0, sizeof(uint8_t) * 5);                                      /* clear the buffer */
+    res = handle->iic_read_cmd(handle->iic_addr, buf, i + 1);                 /* read data */
+    if (res != 0)                                                             /* check error */
     {
-        res = handle->iic_read_cmd(handle->iic_addr, (uint8_t *)&buf[j], 1);  /* read data */
-        if (res != 0)                                                         /* check error */
-        {
-            handle->debug_print("pcf8591: read command failed.\n");           /* read failed */
-           
-            return 1;                                                         /* return error */
-        }
-        handle->delay_ms(5);                                                  /* delay 5 ms */
+        handle->debug_print("pcf8591: read command failed.\n");               /* read failed */
+       
+        return 1;                                                             /* return error */
     }
     switch (mode)                                                             /* mode param */
     {
@@ -810,7 +805,7 @@ uint8_t pcf8591_multiple_read(pcf8591_handle_t *handle, int16_t *raw, float *adc
             *adc = (float)(*raw) / 256.0f * handle->ref_voltage;              /* convert to read data */
             raw++;                                                            /* raw address add */
             adc++;                                                            /* adc address add */
-            u_data = buf[0];                                                  /* get data */
+            u_data = buf[4];                                                  /* get data */
             *raw = (int16_t)(u_data);                                         /* get raw */
             *adc = (float)(*raw) / 256.0f * handle->ref_voltage;              /* convert to read data */
             *len = i;                                                         /* set length */
@@ -830,7 +825,7 @@ uint8_t pcf8591_multiple_read(pcf8591_handle_t *handle, int16_t *raw, float *adc
             *adc = (float)(*raw) / 256.0f * handle->ref_voltage;              /* convert to read data */
             raw++;                                                            /* raw address add */
             adc++;                                                            /* adc address add */
-            s_data = (int8_t)(buf[0]);                                        /* get data */
+            s_data = (int8_t)(buf[3]);                                        /* get data */
             *raw = (int16_t)(s_data);                                         /* get raw */
             *adc = (float)(*raw) / 256.0f * handle->ref_voltage;              /* convert to read data */
             *len = i;                                                         /* set length */
@@ -850,7 +845,7 @@ uint8_t pcf8591_multiple_read(pcf8591_handle_t *handle, int16_t *raw, float *adc
             *adc = (float)(*raw) / 256.0f * handle->ref_voltage;              /* convert to read data */
             raw++;                                                            /* raw address add */
             adc++;                                                            /* adc address add */
-            s_data = (int8_t)(buf[0]);                                        /* get data */
+            s_data = (int8_t)(buf[3]);                                        /* get data */
             *raw = (int16_t)(s_data);                                         /* get raw */
             *adc = (float)(*raw) / 256.0f * handle->ref_voltage;              /* convert to read data */
             *len = i;                                                         /* set length */
@@ -865,7 +860,7 @@ uint8_t pcf8591_multiple_read(pcf8591_handle_t *handle, int16_t *raw, float *adc
             *adc = (float)(*raw) / 256.0f * handle->ref_voltage;              /* convert to read data */
             raw++;                                                            /* raw address add */
             adc++;                                                            /* adc address add */
-            s_data = (int8_t)(buf[0]);                                        /* get data */
+            s_data = (int8_t)(buf[2]);                                        /* get data */
             *raw = (int16_t)(s_data);                                         /* get raw */
             *adc = (float)(*raw) / 256.0f * handle->ref_voltage;              /* convert to read data */
             *len = i;                                                         /* set length */
@@ -881,7 +876,6 @@ uint8_t pcf8591_multiple_read(pcf8591_handle_t *handle, int16_t *raw, float *adc
             break;                                                            /* break */
         }
     }
-    
     
     return res;                                                               /* return the result */
 }

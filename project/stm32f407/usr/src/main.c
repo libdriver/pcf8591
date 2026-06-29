@@ -257,7 +257,7 @@ uint8_t pcf8591(uint8_t argc, char **argv)
                 }
                 else if (strcmp("AIN1_AND_ANI2_AIN3", optarg) == 0)
                 {
-                    mode = PCF8591_MODE_AIN0_AIN1_AND_ANI2_AIN3;
+                    mode = PCF8591_MODE_AIN0_AIN1_AND_AIN2_AIN3;
                 }
                 else
                 {
